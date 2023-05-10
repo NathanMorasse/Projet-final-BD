@@ -15,7 +15,7 @@
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>1328</value>
+        <value>1337</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -23,7 +23,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>38</value>
+        <value>39</value>
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
@@ -44,7 +44,18 @@
   </counters>
   <alias-groups />
   <management uid="md-9435d2a1c8964e2a90afdb5c507e9bbb" name="" task-id-sequence="0">
+    <working-schedule uid="ws-8b8b95346d574f0c92de8d7a68d1c4e4" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
     <persons>
+      <person id="">
+        <first-name>Raphael</first-name>
+        <last-name>Gagnon</last-name>
+        <role />
+        <e-mail>raphaelgagnon@cegep-chicoutimi.qc.ca</e-mail>
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-ba3171d41b814318b91a3c2f1e75dc43" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
       <person id="">
         <first-name>Raphael</first-name>
         <last-name>Gagnon</last-name>
@@ -103,7 +114,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="pdbc4c6fc6a8f4283ba1e96e7becf8b1d_612436862" name="ClassDiagram1" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="0,-73">
+      <diagram type="uml-class" id="pdbc4c6fc6a8f4283ba1e96e7becf8b1d_612436862" name="ClassDiagram1" order-index="1" uid="" show-id="false" show-name="true" show-parent-name="false" name-style="local-auto-parents" show-stereotypes="true" show-tagged-values="false" show-template-parameters="true" show-fields="true" show-field-tags="true" show-empty-compartments="true" show-special-indicators="false" show-rules="true" show-attributes="true" show-attribute-visibility="true" show-operations="true" show-operation-parameters="true" show-operation-visibility="true" show-visibility-sign="true" show-nullability="true" show-sequence-number="false" show-extension-points="false" show-relationship-texts="true" show-data="true" show-description="false" show-field-description="false" auto-routed-paths="false" default-line-style="default" view-location="254,-74" zoom="1.4">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -141,6 +152,7 @@
               <owned-item ref="cbbaf7c9440c4d70bc8956eaa614453e" />
               <owned-item ref="be83dd6ea9f84db3b365205b52861aca" />
               <owned-item ref="f79d4be995f349f9a90a1400ce6c3b61" />
+              <owned-item ref="276194740aae440883c3f7f22cf62716" />
             </owned-items>
             <attributes>
               <attribute id="a0f92f59755e2401fb14b807d90374b9c130" cid="PROP007" name="IdCharacteristics" creation-date="05/09/2023 19:45:41" property-ref="f79d4be995f349f9a90a1400ce6c3b61" />
@@ -148,6 +160,7 @@
               <attribute id="a487873ce721940ca86c170053220ba1345" cid="PROP004" name="Class" creation-date="05/09/2023 19:41:57" property-ref="c26c4975f2cd49d4bd1c26059d75dfb6" />
               <attribute id="aec3ac864a4064674b38fe0e51ceaf2ac935" cid="PROP005" name="Description" creation-date="05/09/2023 19:43:07" property-ref="cbbaf7c9440c4d70bc8956eaa614453e" />
               <attribute id="a434833f65c9144a38d54b05f59e2651f855" cid="PROP006" name="Background" creation-date="05/09/2023 19:44:39" property-ref="be83dd6ea9f84db3b365205b52861aca" />
+              <attribute id="abce325c0073b434fb7ad363a5eae89e1636" cid="PROP038" name="Alignment" creation-date="05/09/2023 21:40:03" property-ref="276194740aae440883c3f7f22cf62716" />
             </attributes>
           </item>
           <item id="f115facb4a95491892a18e36cf28f4c8" cid="C003" type="class" name="Statistics" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 19:14:00" visibility="package">
@@ -213,7 +226,7 @@
               <attribute id="a72f6ebaa350d4d85ab1da6f5781f2812974" cid="PROP031" name="Name" creation-date="05/09/2023 20:21:28" property-ref="d917e438e72f4c2ca47e8ab435a7e0f4" />
               <attribute id="acf9c1834a66d4108938e0f69eaa35115998" cid="PROP028" name="Dices" creation-date="05/09/2023 20:20:00" property-ref="1cda3e5e55ca4d53aa8d1da4ebb7f9e1" />
               <attribute id="a977286ce45ff4ad0b62a2dca3ed186a4577" cid="PROP035" name="Description" creation-date="05/09/2023 20:38:23" property-ref="73cc7b484d854c48bb55e7fc03a94105" />
-              <attribute id="af7fbfcab6ff14f47b42ba8e52a8b767e120" cid="PROP037" name="Wheight" creation-date="05/09/2023 20:45:02" property-ref="98be2f3126394aa2884ccdc5f21fb0cc" />
+              <attribute id="af7fbfcab6ff14f47b42ba8e52a8b767e120" cid="PROP037" name="Weight" creation-date="05/09/2023 20:45:02" property-ref="98be2f3126394aa2884ccdc5f21fb0cc" />
             </attributes>
           </item>
           <item id="96abad82b7484fa9940c70b5d8cc03dc" cid="PROP001" type="property" name="Race" style-class="" owner="1e7907987a21419b97fbfccf8081ca06" creator="" creation-date="05/09/2023 19:39:05" visibility="private">
@@ -303,8 +316,8 @@
           </item>
           <item id="94d016fea3ef44098f4f698041c6569d" cid="REL002" type="relationship" name="Possède" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 20:23:55" from="6f17baea63854de8ae6ad2a5cca2f243" to="2b2e764008db499dba92e887a54e7628" visibility="package">
             <relation from="6f17baea63854de8ae6ad2a5cca2f243" to="2b2e764008db499dba92e887a54e7628" derived="false">
-              <start-role id="umlar-856c22db-c1fe-49eb-a094-98ef051bebf8" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-fdeca6de-2d62-4c1b-a9ed-a35e7d9dc5aa" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-625bfb43-b99a-4f6e-abac-b241ba334cbb" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-1d9f7655-f25d-4fce-8b58-20d262e8c072" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="f69dc96f38ba49ddb7002d2a024f916e" cid="PROP019" type="property" name="IdAbility" style-class="" owner="4ed1758c131d4132bf6a9721298ef281" creator="" creation-date="05/09/2023 19:54:46" visibility="private">
@@ -349,8 +362,8 @@
           </item>
           <item id="66111a8c1bf246f2b3630f179afcf54e" cid="REL003" type="relationship" name="Possède" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 20:24:22" from="6f17baea63854de8ae6ad2a5cca2f243" to="1e7907987a21419b97fbfccf8081ca06" visibility="package">
             <relation from="6f17baea63854de8ae6ad2a5cca2f243" to="1e7907987a21419b97fbfccf8081ca06" derived="false">
-              <start-role id="umlar-4c32c54e-197d-4b94-a0e0-4833fcd8dfe5" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-7217457d-56a1-4585-87aa-9c582a1c67aa" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-ba67e04e-a485-4559-95eb-e5c0405a7187" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-886c9675-b057-4011-bb99-a5764aabd22f" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="8a8e10bf298b4ff2bf47779d1c24d899" cid="PROP030" type="property" name="Quantity" style-class="" owner="e8eaef72118d4f578bc1d1514775f517" creator="" creation-date="05/09/2023 20:21:16" visibility="private">
@@ -365,14 +378,14 @@
           </item>
           <item id="dc8b4860bcf5431d8335576559af5ebb" cid="REL004" type="relationship" name="Possède" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 20:24:25" from="6f17baea63854de8ae6ad2a5cca2f243" to="f115facb4a95491892a18e36cf28f4c8" visibility="package">
             <relation from="6f17baea63854de8ae6ad2a5cca2f243" to="f115facb4a95491892a18e36cf28f4c8" derived="false">
-              <start-role id="umlar-98622bc4-3d93-49dd-aa60-56752c141573" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-643594a7-6f7b-48ae-ad46-f33f623df0f1" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-b2c97448-f832-47d4-8987-8e577ef94e74" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-1ece5bad-6442-4523-a37f-e5878f451498" name="" multiplicity="1" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="dd45aff4a7fa4a4f8210c71793e291c2" cid="REL005" type="relationship" name="Possède" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 20:24:29" from="6f17baea63854de8ae6ad2a5cca2f243" to="4ed1758c131d4132bf6a9721298ef281" visibility="package">
             <relation from="6f17baea63854de8ae6ad2a5cca2f243" to="4ed1758c131d4132bf6a9721298ef281" derived="false">
-              <start-role id="umlar-23a23ad4-f871-4238-ade7-d17805d38ea1" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
-              <end-role id="umlar-80de6448-72af-4b48-a0c3-5dc32578b866" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <start-role id="umlar-f9d6d82b-8794-474e-951d-38bb010384d6" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
+              <end-role id="umlar-45071029-6b0f-485a-9f37-14d2ef7e2939" name="" multiplicity="0..*" navigability="" association-type="association" visibility="private" />
             </relation>
           </item>
           <item id="73cc7b484d854c48bb55e7fc03a94105" cid="PROP035" type="property" name="Description" style-class="" owner="2b2e764008db499dba92e887a54e7628" creator="" creation-date="05/09/2023 20:38:23" visibility="private">
@@ -385,9 +398,14 @@
             <structural-feature type="String" type-id="Uml.String" />
             <property />
           </item>
-          <item id="98be2f3126394aa2884ccdc5f21fb0cc" cid="PROP037" type="property" name="Wheight" style-class="" owner="2b2e764008db499dba92e887a54e7628" creator="" creation-date="05/09/2023 20:45:02" visibility="private">
+          <item id="98be2f3126394aa2884ccdc5f21fb0cc" cid="PROP037" type="property" name="Weight" style-class="" owner="2b2e764008db499dba92e887a54e7628" creator="" creation-date="05/09/2023 20:45:02" visibility="private">
             <feature />
             <structural-feature type="double" type-id="double" />
+            <property />
+          </item>
+          <item id="276194740aae440883c3f7f22cf62716" cid="PROP038" type="property" name="Alignment" style-class="" owner="1e7907987a21419b97fbfccf8081ca06" creator="" creation-date="05/09/2023 21:40:03" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
             <property />
           </item>
         </abstract-items>

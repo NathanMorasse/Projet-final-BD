@@ -15,7 +15,7 @@
     <entity-ids>
       <counter>
         <item-type type-id="group" type="Group" />
-        <value>1330</value>
+        <value>1334</value>
       </counter>
       <counter>
         <item-type type-id="class" type="Class" />
@@ -23,7 +23,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>38</value>
+        <value>39</value>
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
@@ -152,6 +152,7 @@
               <owned-item ref="cbbaf7c9440c4d70bc8956eaa614453e" />
               <owned-item ref="be83dd6ea9f84db3b365205b52861aca" />
               <owned-item ref="f79d4be995f349f9a90a1400ce6c3b61" />
+              <owned-item ref="276194740aae440883c3f7f22cf62716" />
             </owned-items>
             <attributes>
               <attribute id="a0f92f59755e2401fb14b807d90374b9c130" cid="PROP007" name="IdCharacteristics" creation-date="05/09/2023 19:45:41" property-ref="f79d4be995f349f9a90a1400ce6c3b61" />
@@ -159,6 +160,7 @@
               <attribute id="a487873ce721940ca86c170053220ba1345" cid="PROP004" name="Class" creation-date="05/09/2023 19:41:57" property-ref="c26c4975f2cd49d4bd1c26059d75dfb6" />
               <attribute id="aec3ac864a4064674b38fe0e51ceaf2ac935" cid="PROP005" name="Description" creation-date="05/09/2023 19:43:07" property-ref="cbbaf7c9440c4d70bc8956eaa614453e" />
               <attribute id="a434833f65c9144a38d54b05f59e2651f855" cid="PROP006" name="Background" creation-date="05/09/2023 19:44:39" property-ref="be83dd6ea9f84db3b365205b52861aca" />
+              <attribute id="abce325c0073b434fb7ad363a5eae89e1636" cid="PROP038" name="Alignment" creation-date="05/09/2023 21:40:03" property-ref="276194740aae440883c3f7f22cf62716" />
             </attributes>
           </item>
           <item id="f115facb4a95491892a18e36cf28f4c8" cid="C003" type="class" name="Statistics" style-class="" change-tracking-state="added" creator="" creation-date="05/09/2023 19:14:00" visibility="package">
@@ -399,6 +401,11 @@
           <item id="98be2f3126394aa2884ccdc5f21fb0cc" cid="PROP037" type="property" name="Wheight" style-class="" owner="2b2e764008db499dba92e887a54e7628" creator="" creation-date="05/09/2023 20:45:02" visibility="private">
             <feature />
             <structural-feature type="double" type-id="double" />
+            <property />
+          </item>
+          <item id="276194740aae440883c3f7f22cf62716" cid="PROP038" type="property" name="Alignment" style-class="" owner="1e7907987a21419b97fbfccf8081ca06" creator="" creation-date="05/09/2023 21:40:03" visibility="private">
+            <feature />
+            <structural-feature type="String" type-id="Uml.String" />
             <property />
           </item>
         </abstract-items>
