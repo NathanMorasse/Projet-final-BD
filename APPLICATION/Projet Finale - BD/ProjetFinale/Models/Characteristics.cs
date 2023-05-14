@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ProjetFinale.Models
 {
-    internal class PlaceHolder
+    public class Characteristics
     {
     }
 }
