@@ -5,8 +5,134 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetFinale.Views"
         mc:Ignorable="d"
-        Title="Container" Height="450" Width="800">
+        Title="Serge le gestionnaire" 
+        Height="450" 
+        Width="800"
+        MinHeight="700"
+        MinWidth="1200"
+        FontFamily="Bahnschrift">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition MaxHeight="120"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition MaxHeight="120" Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid x:Name="Header" Grid.Row="0" Background="#393646">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Label x:Name="PageTitle" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="White" FontSize="45" FontWeight="DemiBold"></Label>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="#B0A4A4">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Expander ExpandDirection="Right" 
+                      Header=""
+                      Margin="3"
+                      Padding="3"
+                      Background="#393646"
+                      BorderBrush="Transparent">
+                <Grid Margin="0 0 10 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*"/>
+                        <RowDefinition MaxHeight="100"/>
+                        <RowDefinition MaxHeight="100"/>
+                        <RowDefinition MaxHeight="100"/>
+                        <RowDefinition MaxHeight="100"/>
+                        <RowDefinition Height="0.6*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="4*" MaxWidth="1000"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="0 5"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                        <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Home"
+                                Click="Home_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Acceuil"
+                                FontSize="30"
+                                Foreground="White"
+                                Padding="15"/>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="2"
+                            Margin="0 5"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                        <Button Style="{DynamicResource ButtonStyleHover}" x:Name="Characters"
+                                Click="Characters_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Personnages"
+                                FontSize="30"
+                                Foreground="White"
+                                Padding="15"/>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="3"
+                            Margin="0 5"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                        <Button Style="{DynamicResource ButtonStyleHover}" x:Name="Objects"
+                                Click="Objects_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Objets"
+                                FontSize="30"
+                                Foreground="White"
+                                Padding="15"/>
+                    </Border>
+
+                    <Border Grid.Column="1"
+                            Grid.Row="4"
+                            Margin="0 5"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                        <Button Style="{DynamicResource ButtonStyleHover}" x:Name="Abilities"
+                                Click="Abilities_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Capacités"
+                                FontSize="30"
+                                Foreground="White"
+                                Padding="15"/>
+                    </Border>
+                </Grid>
+            </Expander>
+
+            <Border x:Name="Body" Grid.Column="1" Margin="3">
+                <Frame x:Name="frame" Navigated="frame_Navigated" Background="Transparent" BorderBrush="Transparent" NavigationUIVisibility="Hidden"/>
+            </Border>
+        </Grid>
+
+        <Grid x:Name="Footer" Grid.Row="3" Background="#393646">
+
+        </Grid>
     </Grid>
 </Window>
