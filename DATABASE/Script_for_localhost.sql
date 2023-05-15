@@ -132,10 +132,10 @@ CREATE PROCEDURE CreateCharacter(
     IN _Class VARCHAR(40),
     IN _Description VARCHAR(500),
     IN _BackGround VARCHAR(500),
-    IN _Alignement VARCHAR(40)
+    IN _Alignement VARCHAR(40),
+    OUT IdCharacter INT
 )
 BEGIN
-    DECLARE IdCharacter INT;
     
     INSERT INTO bd_projetFinal.TblCharacter(CharacterName, CharacterPv)
     VALUES(_Name, _Health);

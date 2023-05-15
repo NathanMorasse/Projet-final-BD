@@ -23,6 +23,45 @@ namespace ProjetFinale.Views
         public ObjectsList()
         {
             InitializeComponent();
+
+            List<Test> test = new List<Test>();
+
+            test.Add(new Test("Pomme", 50));
+            test.Add(new Test("Avion", 10));
+            test.Add(new Test("Auto", 30));
+            test.Add(new Test("Épée", 55));
+            test.Add(new Test("Roger", 20));
+            test.Add(new Test("Toutou", 15));
+            test.Add(new Test("Poire", 15));
+
+            Objects.ItemsSource = test;
+        }
+
+        public class Test
+        {
+            public string Name { get; set; }
+            public double Weight { get; set; }
+
+            public Test(string name, double weight)
+            {
+                Name = name;
+                Weight = weight;
+            }
+        }
+
+        private void Look_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

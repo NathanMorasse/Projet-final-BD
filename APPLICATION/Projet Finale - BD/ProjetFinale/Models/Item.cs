@@ -9,16 +9,18 @@ namespace ProjetFinale.Models
     public class Item
     {
         #region Attributs
-        private int _idItems;
+        private int _id;
         private string _name;
         private string _diceToRoll;
+        private string _description;
+        private int _weight;
         #endregion
 
         #region Propriétés
-        public int IdItems
+        public int Id
         {
-            get { return _idItems; }
-            set { _idItems = value; }
+            get { return _id; }
+            set { _id = value; }
         }
 
         public string Name
@@ -32,17 +34,32 @@ namespace ProjetFinale.Models
             get { return _diceToRoll; }
             set { _diceToRoll = value; }
         }
+
+        public string Description
+        {
+            get { return _description; }
+            set { _description = value; }
+        }
+
+        public int Weight
+        {
+            get { return _weight; }
+            set { _weight = value; }
+        }
+
         #endregion
 
 
         #region Constructeur
         public Item() { }
 
-        public Item(int idItems ,string name, string diceToRoll)
+        public Item(int id , string name, string diceToRoll, string description, int weight)
         {
-            IdItems = idItems;
+            Id = id;
             Name = name;
             DiceToRoll = diceToRoll;
+            Description = description;
+            Weight = weight;
         }
         #endregion
     }
