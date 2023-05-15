@@ -136,5 +136,88 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Close();
             }
         }
+
+        public List<Item> GetInventoryByCharacterId(int id)
+        {
+            List<Item> items = new List<Item>();
+            MySqlConnection connection = null;
+            MySqlDataReader reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblinventory WHERE IdPerso = @Id";
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Item temp = GetItemById((int)reader["IdObject"]);
+                    temp.Quantity = (int)reader["QuantiteObjet"];
+                    items.Add(temp);
+                }
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                connection.Close();
+            }
+
+            return items;
+        }
+
+        public void AddItemToCharacterInventory(int idItem, int idCharacter, int quantity)
+        {
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO tblinventory " +
+                    "VALUES(@IdItem, @IdCharacter, @Quantity)";
+                cmd.Parameters.AddWithValue("@IdItem", idItem);
+                cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);
+                cmd.Parameters.AddWithValue("@Quantity", quantity);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void RemoveItemFromCharacterInventory(int idItem, int idCharacter)
+        {
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE FROM tblinventory " +
+                    "WHERE IdObject = @IdItem " +
+                    "AND IdCharacter = @IdCharacter";
+                cmd.Parameters.AddWithValue("@IdItem", idItem);
+                cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
     }
 }

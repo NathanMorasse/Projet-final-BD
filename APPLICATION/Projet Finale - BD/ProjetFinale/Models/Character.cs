@@ -21,7 +21,7 @@ namespace ProjetFinale.Models
         private DateTime _dateModif;
         private Characteristics _characteristics;
         private Statistics _statistics;
-        private Inventory _inventory;
+        private List<Item> _inventory;
         private List<Ability> _abilities;
 
         #endregion
@@ -70,7 +70,7 @@ namespace ProjetFinale.Models
             set { _statistics = value; }
         }
 
-        public Inventory Inventory
+        public List<Item> Inventory
         {
             get { return _inventory; }
             set { _inventory = value; }
@@ -104,7 +104,7 @@ namespace ProjetFinale.Models
             this.Name = name;
             Characteristics = new Characteristics();
             Statistics = new Statistics();
-            Inventory = new Inventory();
+            Inventory = new List<Item>();
             Abilities = new List<Ability>();
         }
 
