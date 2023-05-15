@@ -13,7 +13,7 @@ namespace ProjetFinale.Models
         private string _name;
         private string _diceToRoll;
         private string _description;
-        private int _weight;
+        private decimal _weight;
         #endregion
 
         #region Propriétés
@@ -41,7 +41,7 @@ namespace ProjetFinale.Models
             set { _description = value; }
         }
 
-        public int Weight
+        public decimal Weight
         {
             get { return _weight; }
             set { _weight = value; }
@@ -53,7 +53,7 @@ namespace ProjetFinale.Models
         #region Constructeur
         public Item() { }
 
-        public Item(int id , string name, string diceToRoll, string description, int weight)
+        public Item(int id , string name, string diceToRoll, string description, decimal weight)
         {
             Id = id;
             Name = name;
