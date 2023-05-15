@@ -6,9 +6,87 @@
       xmlns:local="clr-namespace:ProjetFinale.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddCharacter">
+      Title="Ajout de personnage">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Center">
+        <Border CornerRadius="3" Background="#393646">
+            <Grid Margin="10">
+                <Grid Grid.Row="0" Width="600">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#4F4557"
+                            CornerRadius="3 3 0 0">
+
+                        <Grid>
+                            <Label Grid.Column="0"
+                           Margin="3"
+                           FontSize="20" 
+                           FontWeight="DemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Content="Nouveau Personnage"/>
+                        </Grid>
+                    </Border>
+
+                    <ListBox Grid.Row="1" x:Name="Characters" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding Characters, Mode=TwoWay}" SelectedItem="{Binding CharacterSelection, Mode=TwoWay}">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Margin="0 0 5 0" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="0" Text="Nom :"/>
+                                        <TextBlock Margin="0 0 5 0" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="1" Text="Niveau :"/>
+                                        <TextBlock Margin="0 0 5 2" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="2" Text="Santé :"/>
+
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="0" Text="{Binding Name}"/>
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="1" Text="{Binding Level}"/>
+                                        <TextBlock Margin="5 0 0 2" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="2" Text="{Binding Health}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Border Grid.Row="2"
+                            Background="#4F4557"
+                            CornerRadius="0 0 3 3"
+                            Height="50">
+
+                        <Border 
+                            Margin="5"
+                            Background="#1A5F7A"
+                            BorderBrush="#FF15536B"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Add"
+                                Click="Add_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="+ Ajouter"
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Padding="5"/>
+                        </Border>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>
