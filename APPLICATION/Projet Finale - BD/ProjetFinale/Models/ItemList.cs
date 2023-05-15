@@ -38,9 +38,8 @@ namespace ProjetFinale.Models
                     throw new ItemAlreadyInListException("L'item existe déjà dans la liste des habiletés");
                 }
             }
-
-            new DAL().ItemFact.AddItem(Ajout);
             Items.Add(Ajout);
+            new DAL().ItemFact.AddItem(Ajout);
         }
 
         public static void DeleteItem(Item Delete)

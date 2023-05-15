@@ -193,7 +193,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
 
                 cmd.ExecuteNonQuery();
 
-                newCharacter.Id = (int)cmd.Parameters["@IdCharacter"].Value;
+                CharacterList.Characters[CharacterList.Characters.Count - 1].Id = (int)cmd.Parameters["@IdCharacter"].Value;
             }
             finally
             {

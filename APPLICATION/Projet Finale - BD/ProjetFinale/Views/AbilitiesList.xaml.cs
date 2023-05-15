@@ -34,6 +34,13 @@ namespace ProjetFinale.Views
             //Abilities.ItemsSource = test;
         }
 
+        public AbilitiesList(VMAbilities dataContext)
+        {
+            InitializeComponent();
+            VMAbilities vm = dataContext;
+            this.DataContext = vm;
+        }
+
         //public class Test
         //{
         //    public string Name { get; set; }
@@ -50,7 +57,7 @@ namespace ProjetFinale.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddAbility());
+            NavigationService.Navigate(new AddAbility((VMAbilities)this.DataContext));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)

@@ -116,7 +116,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.Parameters.AddWithValue("@Weight", newItem.Weight);
 
                 cmd.ExecuteNonQuery();
-                newItem.Id = (int)cmd.LastInsertedId;
+                ItemList.Items[ItemList.Items.Count - 1].Id = (int)cmd.LastInsertedId;
             }
             finally
             {

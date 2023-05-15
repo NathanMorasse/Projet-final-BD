@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using System.Windows;
+using System.Windows.Markup;
 
 namespace ProjetFinale.ViewModels
 {
@@ -27,6 +28,13 @@ namespace ProjetFinale.ViewModels
         #region Attributs
         private List<Ability> _abilities;
         private Ability _abilitySelection;
+        private string _name;
+        private string _periodeRechargement;
+        private string _typeHabilete;
+        private string _diceToRoll;
+        private string _description;
+        private int _distance;
+
         #endregion
 
         #region Propriétés
@@ -56,6 +64,69 @@ namespace ProjetFinale.ViewModels
                 ChangeValue("AbilitySelection");
             }
         }
+
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                _name = value;
+                ChangeValue("Name");
+            }
+        }
+
+        public string PeriodeRechargement
+        {
+            get { return _periodeRechargement; }
+            set
+            {
+                _periodeRechargement = value;
+                ChangeValue("PeriodeRechargement");
+            }
+        }
+
+        public string TypeHabilete
+        {
+            get { return _typeHabilete; }
+            set 
+            {
+                _typeHabilete = value;
+                ChangeValue("TypeHabilete");
+            }
+        }
+
+        public string DiceToRoll
+        {
+            get { return _diceToRoll; }
+            set
+            {
+                _diceToRoll = value;
+                ChangeValue("DiceToRoll");
+            }
+        }
+
+        public string Description
+        {
+            get { return _diceToRoll; }
+            set 
+            {
+                _diceToRoll = value; 
+                ChangeValue("Description");
+            }
+        }
+
+        public int Distance
+        {
+            get { return _distance; }
+            set
+            {
+                _distance = value;
+                ChangeValue("Distance");
+            }
+        }
         #endregion
 
         #region Constructeur
@@ -65,7 +136,7 @@ namespace ProjetFinale.ViewModels
             AbilityList.LoadAbilities();
             Abilities = AbilityList.Abilities;
             DeleteAbility = new CommandeRelais(DeleteAbility_Execute, DeleteAbility_CanExecute);
-            //CreateAbility = new CommandeRelais(Creat)
+            CreateAbility = new CommandeRelais(CreateAbility_Execute, CreateAbility_CanExecute);
         }
         #endregion
 
@@ -100,6 +171,28 @@ namespace ProjetFinale.ViewModels
             }
         }
 
+        private void CreateAbility_Execute(object parameter)
+        {
+            if(VerifCreateAbility())
+            {
+                try
+                {
+                    AbilityList.AddAbility(new(PeriodeRechargement, Name, TypeHabilete, DiceToRoll, Description, Distance));
+                    Abilities = AbilityList.Abilities;
+                    AbilitySelection = Abilities[Abilities.Count - 1];
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private bool CreateAbility_CanExecute(object parameter)
+        {
+            return true;    
+        }
+
         private bool DeleteAbility_CanExecute(object parameter)
         {
             return true;
@@ -110,6 +203,17 @@ namespace ProjetFinale.ViewModels
         private bool VerifDeleteAbility()
         {
             if(AbilitySelection != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool VerifCreateAbility()
+        {
+            if(Name != null && Name !=  string.Empty && PeriodeRechargement != null && PeriodeRechargement != string.Empty
+                && TypeHabilete != null && TypeHabilete != string.Empty && DiceToRoll != null && DiceToRoll != string.Empty
+                && Description != null && Description != string.Empty && Distance > 0)
             {
                 return true;
             }

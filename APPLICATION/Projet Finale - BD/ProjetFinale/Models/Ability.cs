@@ -75,6 +75,16 @@ namespace ProjetFinale.Models
             Distance = distance;
         }
 
+        public Ability(string rechargement, string name, string type, string diceToRoll, string description, int distance)
+        {
+            Rechargement = rechargement;
+            Name = name;
+            Type = type;
+            DiceToRoll = diceToRoll;
+            Description = description;
+            Distance = distance;
+        }
+
         #endregion
     }
 }

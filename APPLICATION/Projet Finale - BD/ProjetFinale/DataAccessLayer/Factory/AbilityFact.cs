@@ -135,7 +135,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "INSERT INTO tblability (NomAbility, DureeAbility, Distance, TypeAbility, DiceToRoll, DescriptionAbility) " +
+                cmd.CommandText = "INSERT INTO tblability (NomAbility, Rechargement, Distance, TypeAbility, DiceToRoll, DescriptionAbility) " +
                     "VALUES(@Name, @Duration, @Distance, @Type, @DiceToRoll, @Description)";
                 cmd.Parameters.AddWithValue("@Name", newAbility.Name);
                 cmd.Parameters.AddWithValue("@Duration", newAbility.Rechargement);
@@ -145,7 +145,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.Parameters.AddWithValue("@Description", newAbility.Description);
 
                 cmd.ExecuteNonQuery();
-                newAbility.Id = (int)cmd.LastInsertedId;
+                AbilityList.Abilities[AbilityList.Abilities.Count-1].Id = (int)cmd.LastInsertedId;
             }
             finally
             {

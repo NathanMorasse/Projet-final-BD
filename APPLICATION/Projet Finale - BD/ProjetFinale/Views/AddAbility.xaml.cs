@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,21 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class AddAbility : Page
     {
-        public AddAbility()
+        public AddAbility(VMAbilities dataContext)
         {
             InitializeComponent();
+            VMAbilities vm = dataContext;
+            this.DataContext = vm;
+        }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProjetFinale.Views.AbilitiesList((VMAbilities)this.DataContext));
+        }
+
+        private void CancelAdd(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProjetFinale.Views.AbilitiesList());
         }
     }
 }
