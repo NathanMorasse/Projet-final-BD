@@ -1,4 +1,5 @@
 ﻿using ProjetFinale.CustomExceptions;
+using ProjetFinale.DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,7 +40,10 @@ namespace ProjetFinale.Models
         #region Fonctions
         public static void LoadCharacters()
         {
-            throw new NotImplementedException();
+            DAL dal = new DAL();
+            Characters = dal.CharacterFact.GetAllCharacters();
+            HighestLevelCharacters = dal.CharacterFact.GetHighestLvlCharacters();
+            LastUpdatedCharacters = dal.CharacterFact.GetLastUpdatedCharacters();
         }
 
         public static void AddCharacter(Character Ajout)

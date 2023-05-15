@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+using System.Windows;
 
 namespace ProjetFinale.DataAccessLayer.Factory
 {
@@ -169,7 +170,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.Parameters.AddWithValue("@Name", newCharacter.Name);
                 cmd.Parameters.AddWithValue("@Health", newCharacter.Health);
                 cmd.Parameters.AddWithValue("@Race", newCharacter.Characteristics.Race);
-                cmd.Parameters.AddWithValue("@Class", newCharacter.Characteristics.Class);
+                cmd.Parameters.AddWithValue("@Class", newCharacter.Characteristics.Classe);
                 cmd.Parameters.AddWithValue("@Description", newCharacter.Characteristics.Description);
                 cmd.Parameters.AddWithValue("@Background", newCharacter.Characteristics.Background);
                 cmd.Parameters.AddWithValue("@Alignement", newCharacter.Characteristics.Alignement);
@@ -198,18 +199,17 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.Parameters.AddWithValue("@Level", newCharacter.Level);
                 cmd.Parameters.AddWithValue("@Health", newCharacter.Health);
                 cmd.Parameters.AddWithValue("@Race", newCharacter.Characteristics.Race);
-                cmd.Parameters.AddWithValue("@Class", newCharacter.Characteristics.Class);
+                cmd.Parameters.AddWithValue("@Class", newCharacter.Characteristics.Classe);
                 cmd.Parameters.AddWithValue("@Description", newCharacter.Characteristics.Description);
                 cmd.Parameters.AddWithValue("@Background", newCharacter.Characteristics.Background);
                 cmd.Parameters.AddWithValue("@Alignement", newCharacter.Characteristics.Alignement);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Strength);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Dexterity);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Constitution);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Intelligence);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Wisdom);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Charisma);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Statistics.Armor);
-
+                cmd.Parameters.AddWithValue("@Strength", newCharacter.Statistics.Strength);
+                cmd.Parameters.AddWithValue("@Dexterity", newCharacter.Statistics.Dexterity);
+                cmd.Parameters.AddWithValue("@Constitution", newCharacter.Statistics.Constitution);
+                cmd.Parameters.AddWithValue("@Intelligence", newCharacter.Statistics.Intelligence);
+                cmd.Parameters.AddWithValue("@Wisdom", newCharacter.Statistics.Wisdom);
+                cmd.Parameters.AddWithValue("@Charisma", newCharacter.Statistics.Charisma);
+                cmd.Parameters.AddWithValue("@Armor", newCharacter.Statistics.Armor);
 
                 cmd.ExecuteNonQuery();
             }

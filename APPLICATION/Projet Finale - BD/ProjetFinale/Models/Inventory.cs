@@ -51,7 +51,7 @@ namespace ProjetFinale.Models
             {
                 if (item.Name == Ajout.Name)
                 {
-                    throw new ItemAlreadyInListException("L'item existe déjà dans la liste des habiletés")
+                    throw new ItemAlreadyInListException("L'item existe déjà dans la liste des items");
                 }
             }
 
