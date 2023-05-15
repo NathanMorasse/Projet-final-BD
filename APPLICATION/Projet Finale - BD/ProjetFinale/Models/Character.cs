@@ -120,7 +120,25 @@ namespace ProjetFinale.Models
 
         public void DeleteAbility(Ability Delete)
         {
+            bool exists = false;
+            foreach (Ability ability in Abilities)
+            {
+                if (ability == Delete)
+                {
+                    exists = true;
+                    break;
+                }
+            }
 
+
+            if (exists)
+            {
+                Abilities.Remove(Delete);
+            }
+            else
+            {
+                throw new AbilityNotInListException("L'habileté n'existe pas dans la liste.");
+            }
         }
         #endregion
     }
