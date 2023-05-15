@@ -26,31 +26,66 @@ namespace ProjetFinale.Models
 
         public string Classe
         {
-            get { return _classe; }
+            get 
+            {
+                if(_classe == null || _classe == string.Empty)
+                {
+                    return _classe = string.Empty;
+                }
+                return _classe; 
+            }
             set { _classe = value; }
         }
 
         public string Race
         {
-            get { return _race; }
+            get 
+            {
+                if(_race == null || _race == string.Empty)
+                {
+                    return string.Empty;
+                }
+                return _race; 
+            }
             set { _race = value; }
         }
 
         public string Description
         {
-            get { return _description; }
+            get 
+            {
+                if(_description == null || _description == string.Empty)
+                {
+                    return string.Empty;
+                }
+                return _description; 
+            }
             set { _description = value; }
         }
 
         public string Background
         {
-            get { return _background; }
+            get 
+            {
+                if (_background == null || _background == string.Empty)
+                {
+                    return string.Empty;
+                }
+               return _background;
+            }
             set { _background = value; }
         }
 
         public string Alignement
         {
-            get { return _alignement; }
+            get 
+            {
+                if (_alignement == null || _alignement == string.Empty)
+                {
+                    return string.Empty;
+                }
+               return _alignement;
+            }
             set { _alignement = value; }
         }
         #endregion
@@ -68,5 +103,13 @@ namespace ProjetFinale.Models
             Alignement = alignement;
         }
 
+        public Characteristics(string classe, string race, string description, string background, string alignement)
+        {
+            Classe = classe;
+            Race = race;
+            Description = description;
+            Background = background;
+            Alignement = alignement;
+        }
     }
 }
