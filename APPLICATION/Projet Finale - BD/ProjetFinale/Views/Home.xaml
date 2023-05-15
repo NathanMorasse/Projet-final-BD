@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMAcceuil}"
       mc:Ignorable="d" 
       d:DesignHeight="800" d:DesignWidth="800"
       Title="Acceuil">
@@ -43,7 +45,7 @@
                         </Grid>
                     </Border>
 
-                    <ListBox Grid.Row="1" x:Name="TopLevels" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557">
+                    <ListBox Grid.Row="1" x:Name="TopLevels" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding HighestLevelCharacters, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">
@@ -101,7 +103,7 @@
                         </Grid>
                     </Border>
 
-                    <ListBox Grid.Row="1" x:Name="RecentChange" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557">
+                    <ListBox Grid.Row="1" x:Name="RecentChange" HorizontalContentAlignment="Stretch" ScrollViewer.VerticalScrollBarVisibility="Disabled" ScrollViewer.CanContentScroll="False" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding LastUpdatedCharacters, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="0,0,0,0.5" BorderBrush="#4F4557">

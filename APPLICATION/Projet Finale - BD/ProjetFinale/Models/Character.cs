@@ -18,6 +18,7 @@ namespace ProjetFinale.Models
         private int _level;
         private int _health;
         private string _name;
+        private DateTime _dateModif;
         private Characteristics _characteristics;
         private Statistics _statistics;
         private Inventory _inventory;
@@ -49,6 +50,12 @@ namespace ProjetFinale.Models
         {
             get { return _name; }
             set { _name = value; }
+        }
+
+        public DateTime DateModif
+        {
+            get { return _dateModif; }
+            set { _dateModif = value; }
         }
 
         public Characteristics Characteristics
@@ -99,6 +106,13 @@ namespace ProjetFinale.Models
             Statistics = new Statistics();
             Inventory = new Inventory();
             Abilities = new List<Ability>();
+        }
+
+        public Character(int id, int level, DateTime dateModif)
+        {
+            this.Id = id;
+            this.Level = level;
+            this.DateModif = dateModif;
         }
 
         #endregion

@@ -24,6 +24,15 @@ namespace ProjetFinale.DataAccessLayer.Factory
             return newCharacter;
         }
 
+        private Character CreateFromReaderWithDate(Character character, DateTime dateModif)
+        {
+            int id = character.Id;
+            int level = character.Level;
+            DateTime date = dateModif;
+
+            return new(id, level, date);
+        }
+
         public List<Character> GetAllCharacters()
         {
             List<Character> characters = new List<Character>();
@@ -107,8 +116,8 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Character characterTemp = CreateFromReader(reader);
-                    characters.Add(characterTemp);
+                    Character temp = GetCharacterById((int)reader["IdCharacter"]);
+                    characters.Add(temp);
                 }
             }
             finally
@@ -140,7 +149,8 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 reader = cmd.ExecuteReader();
                 while (reader.Read())
                 {
-                    Character characterTemp = CreateFromReader(reader);
+                    Character temp = GetCharacterById((int)reader["IdCharacter"]);
+                    Character characterTemp = CreateFromReaderWithDate(temp, (DateTime)reader["LastUpdated"]);
                     characters.Add(characterTemp);
                 }
             }
