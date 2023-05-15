@@ -6,9 +6,100 @@
       xmlns:local="clr-namespace:ProjetFinale.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CharacterPage">
+      Title="Page d'un charactère">
 
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Expander Grid.Row="0" ExpandDirection="Down" 
+                      Header=""
+                      Padding="3"
+                      Background="#393646"
+                      BorderBrush="Transparent"
+                      IsExpanded="True">
+            <Grid Margin="0 0 10 0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.2*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Grid.Column="1"
+                            Margin="5 0 5 10"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                    <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Stats"
+                                Click="Stats_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Statisitque"
+                                FontSize="25"
+                                Foreground="White"
+                                Padding="10"/>
+                </Border>
+
+                <Border Grid.Column="2"
+                            Margin="5 0 5 10"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                    <Button Style="{DynamicResource ButtonStyleHover}"
+                                x:Name="Charateristic"
+                                Click="Charateristic_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Caractérisitque"
+                                FontSize="25"
+                                Foreground="White"
+                                Padding="10"/>
+                </Border>
+
+                <Border Grid.Column="3"
+                            Margin="5 0 5 10"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                    <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Inventory"
+                                Click="Inventory_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Inventaire"
+                                FontSize="25"
+                                Foreground="White"
+                                Padding="10"/>
+                </Border>
+
+                <Border Grid.Column="4"
+                            Margin="5 0 5 10"
+                            Background="#6D5D6E"
+                            BorderBrush="#4F4557"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                    <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Abilities"
+                                Click="Abilities_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Habiletés"
+                                FontSize="25"
+                                Foreground="White"
+                                Padding="10"/>
+                </Border>
+            </Grid>
+        </Expander>
+
+        <Frame Margin="0 3 0 0" Grid.Row="1" x:Name="sub_frame" Navigated="sub_frame_Navigated" Background="Transparent" BorderBrush="Transparent" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Page>
