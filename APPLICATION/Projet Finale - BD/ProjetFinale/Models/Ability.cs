@@ -11,6 +11,7 @@ namespace ProjetFinale.Models
         #region Attributs
         private int _id;
         private int _duration;
+        private int _distance;
         private string _name;
         private string _type;
         private string _diceToRoll;
@@ -31,6 +32,11 @@ namespace ProjetFinale.Models
             set { _duration = value; }
         }
 
+        public int Distance
+        {
+            get { return _distance; }
+            set { _distance = value; }
+        }
         public string Name
         {
             get { return _name; }
@@ -58,7 +64,7 @@ namespace ProjetFinale.Models
 
         #region Constructeur
         public Ability() { }
-        public Ability(int id, int duration, string name, string type, string diceToRoll, string description)
+        public Ability(int id, int duration, string name, string type, string diceToRoll, string description, int distance)
         {
             Id = id;
             Duration = duration;
@@ -66,6 +72,7 @@ namespace ProjetFinale.Models
             Type = type;
             DiceToRoll = diceToRoll;
             Description = description;
+            Distance = distance;
         }
 
         #endregion

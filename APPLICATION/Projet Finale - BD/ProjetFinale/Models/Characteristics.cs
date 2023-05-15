@@ -10,6 +10,7 @@ namespace ProjetFinale.Models
     {
         #region Attributs
         private int _id;
+        private string _classe;
         private string _race;
         private string _description;
         private string _background;
@@ -21,6 +22,12 @@ namespace ProjetFinale.Models
         {
             get { return _id; }
             set { _id = value; }
+        }
+
+        public string Classe
+        {
+            get { return _classe; }
+            set { _classe = value; }
         }
 
         public string Race
@@ -51,9 +58,10 @@ namespace ProjetFinale.Models
 
         public Characteristics() { }
 
-        public Characteristics(int id, string race, string description, string background, string alignement)
+        public Characteristics(int id,string classe, string race, string description, string background, string alignement)
         {
             Id = id;
+            Classe = classe;
             Race = race;
             Description = description;
             Background = background;
