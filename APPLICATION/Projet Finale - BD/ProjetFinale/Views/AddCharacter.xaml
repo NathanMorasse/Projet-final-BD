@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMPersonnage}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="1000"
       Title="Ajout de personnage">
@@ -65,7 +67,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="0"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                     Text="{Binding Name, Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Points de vie :"
@@ -80,7 +83,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="1"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding Health, Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Race :"
@@ -95,7 +99,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="2"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding Race, Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Classe :"
@@ -110,7 +115,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="3"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                     Text="{Binding Classe, Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Description :"
@@ -125,7 +131,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="4"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                     Text="{Binding Description, Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Histoire :"
@@ -140,7 +147,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="5"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                     Text="{Binding Background,Mode=TwoWay}">
                             </TextBox>
 
                             <Label Content="Alignement :"
@@ -155,7 +163,8 @@
                             <TextBox Grid.Column="1"
                                  Grid.Row="6"
                                  Margin="10"
-                                 VerticalContentAlignment="Center">
+                                 VerticalContentAlignment="Center"
+                                     Text="{Binding Alignement, Mode=TwoWay}">
                             </TextBox>
                         </Grid>
                     </Border>
@@ -184,7 +193,8 @@
                                     FontSize="15"
                                     FontWeight="Bold"
                                     Foreground="White"
-                                    Padding="5"/>
+                                    Padding="5"
+                                    Click="CancelAdd"/>
                             </Border>
 
                             <Border Grid.Column="1" 
@@ -201,7 +211,9 @@
                                     FontSize="15"
                                     FontWeight="Bold"
                                     Foreground="White"
-                                    Padding="5"/>
+                                    Padding="5"
+                                    Command="{Binding CreateCharacter,Mode=TwoWay}"
+                                    Click="GoBack"/>
                             </Border>
                         </Grid>
                         

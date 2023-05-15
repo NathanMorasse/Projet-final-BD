@@ -37,6 +37,13 @@ namespace ProjetFinale.Views
             //Characters.ItemsSource = tests;
         }
 
+        public CharactersList(VMPersonnage dataContext)
+        {
+            InitializeComponent();
+            VMPersonnage vm = dataContext;
+            this.DataContext = vm;
+        }
+
         //public class Test
         //{
         //    public string Name { get; set; }
@@ -53,7 +60,7 @@ namespace ProjetFinale.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddCharacter());
+            NavigationService.Navigate(new AddCharacter((VMPersonnage)this.DataContext));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
