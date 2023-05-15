@@ -23,6 +23,43 @@ namespace ProjetFinale.Views
         public AbilitiesList()
         {
             InitializeComponent();
+
+            List<Test> test = new List<Test>();
+
+            test.Add(new Test("Feu", "Sors", "1D8"));
+            test.Add(new Test("Soin", "Sors", "1D6"));
+            test.Add(new Test("Coup de bate", "Bachir", "5D20"));
+
+            Abilities.ItemsSource = test;
+        }
+
+        public class Test
+        {
+            public string Name { get; set; }
+            public string Type { get; set; }
+            public string Dice { get; set; }
+
+            public Test(string name, string type, string dice)
+            {
+                Name = name;
+                Type = type;
+                Dice = dice;
+            }
+        }
+
+        private void Look_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Add_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Delete_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
