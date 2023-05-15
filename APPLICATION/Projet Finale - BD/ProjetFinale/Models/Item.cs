@@ -53,7 +53,7 @@ namespace ProjetFinale.Models
         #region Constructeur
         public Item() { }
 
-        public Item(int id , string name, string diceToRoll, string description, int weight)
+        public Item(int id , string name, string diceToRoll, string description, decimal weight)
         {
             Id = id;
             Name = name;

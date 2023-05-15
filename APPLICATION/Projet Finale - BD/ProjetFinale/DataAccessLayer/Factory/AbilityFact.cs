@@ -14,14 +14,14 @@ namespace ProjetFinale.DataAccessLayer.Factory
         private Ability CreateFromReader(MySqlDataReader reader)
         {
             int id = reader.GetInt32("IdAbility");
-            int duration = reader.GetInt32("DureeAbility");
+            string rechargement = reader.GetString("Rechargement");
             string name = reader.GetString("NomAbility");
             string type = reader.GetString("TypeAbility");
             string diceToRoll = reader.GetString("DiceToRoll");
             string description = reader.GetString("DescriptionAbility");
             int distance = reader.GetInt32("Distance");
 
-            Ability newAbility = new Ability(id, duration, name, type, diceToRoll, description, distance);
+            Ability newAbility = new Ability(id, rechargement, name, type, diceToRoll, description, distance);
             return newAbility;
         }
 

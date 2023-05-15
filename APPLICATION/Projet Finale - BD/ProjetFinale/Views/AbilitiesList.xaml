@@ -6,10 +6,267 @@
       xmlns:local="clr-namespace:ProjetFinale.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="Liste des habiletés"
-      Background="DarkSalmon">
+      Title="Liste des habiletés">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="2*" MinHeight="520"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*" MinWidth="350"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Border Grid.Row="1" 
+                    Grid.Column="1"
+                    BorderThickness="0 0 0 1"
+                    BorderBrush="Black"
+                    CornerRadius="3" 
+                    Background="#393646">
+                <Grid Margin="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#4F4557"
+                            CornerRadius="3 3 0 0">
+
+                        <Grid>
+                            <Label Grid.Column="0"
+                           Margin="3"
+                           FontSize="27" 
+                           FontWeight="DemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Content="Feu"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" 
+                            Background="#6D5D6E"
+                            BorderThickness="2"
+                            BorderBrush="#4F4557">
+                        <Grid Margin="10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+
+                            <WrapPanel Grid.Row="1"
+                                       Orientation="Horizontal"
+                                       HorizontalAlignment="Center">
+                                <Label Content="Type :"
+                                       FontSize="23"
+                                       FontFamily="Bahnschrift"
+                                       Foreground="White"/>
+                                <TextBlock Text="Sors"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="23"
+                                           FontFamily="Bahnschrift"
+                                           Foreground="White"/>
+                            </WrapPanel>
+
+                            <WrapPanel Grid.Row="2"
+                                       Orientation="Horizontal"
+                                       HorizontalAlignment="Center">
+                                <Label Content="Dés associer :"
+                                       FontSize="23"
+                                       FontFamily="Bahnschrift"
+                                       Foreground="White"/>
+                                <TextBlock Text="1D6"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="23"
+                                           FontFamily="Bahnschrift"
+                                           Foreground="White"/>
+                            </WrapPanel>
+
+                            <WrapPanel Grid.Row="3"
+                                       Orientation="Horizontal"
+                                       HorizontalAlignment="Center">
+                                <Label Content="Portée :"
+                                       FontSize="23"
+                                       FontFamily="Bahnschrift"
+                                       Foreground="White"/>
+                                <TextBlock Text="12"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="23"
+                                           FontFamily="Bahnschrift"
+                                           Foreground="White"/>
+                            </WrapPanel>
+
+                            <WrapPanel Grid.Row="4"
+                                       Orientation="Horizontal"
+                                       HorizontalAlignment="Center">
+                                <Label Content="Rechargement :"
+                                       FontSize="23"
+                                       FontFamily="Bahnschrift"
+                                       Foreground="White"/>
+                                <TextBlock Text="2 fois par jour"
+                                           TextAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontSize="23"
+                                           FontFamily="Bahnschrift"
+                                           Foreground="White"/>
+                            </WrapPanel>
+
+                            <WrapPanel Grid.Row="5"
+                                       Orientation="Horizontal"
+                                       HorizontalAlignment="Center"
+                                       Margin="0 10 0 0">
+                                <Label Content="Description :"
+                                       FontSize="23"
+                                       FontFamily="Bahnschrift"
+                                       Foreground="White"/>
+                                <TextBox Text="Donnez moi des patate monsieur le laitire aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaah"
+                                         ScrollViewer.CanContentScroll="True"
+                                         ScrollViewer.VerticalScrollBarVisibility="Auto"
+                                         TextWrapping="Wrap"
+                                         TextAlignment="Center"
+                                         VerticalAlignment="Center"
+                                         FontSize="23"
+                                         FontFamily="Bahnschrift"
+                                         MaxHeight="95"
+                                         Padding="5"
+                                         MaxWidth="500"
+                                         BorderBrush="#4F4557"
+                                         BorderThickness="1"
+                                         Background="Transparent"
+                                         IsReadOnly="True"
+                                         Foreground="White"/>
+                            </WrapPanel>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="2"
+                            Background="#4F4557"
+                            CornerRadius="0 0 3 3"
+                            Height="50">
+                        <Grid>
+                            <Border Grid.Column="1"
+                            Grid.Row="1"
+                            Margin="5"
+                            Background="#CE5959"
+                            BorderBrush="#B04759"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Delete"
+                                Click="Delete_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="- Supprimer"
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Padding="5"
+                                 Command="{Binding DeleteCharacter, Mode=TwoWay}"/>
+                            </Border>
+
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border Grid.Column="1" CornerRadius="3" Background="#393646">
+            <Grid Margin="10">
+                <Grid Grid.Row="0" Width="400">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#4F4557"
+                            CornerRadius="3 3 0 0">
+
+                        <Grid>
+                            <Label Grid.Column="0"
+                           Margin="3"
+                           FontSize="20" 
+                           FontWeight="DemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Content="Les habiletés"/>
+                        </Grid>
+                    </Border>
+
+                    <ListBox Grid.Row="1" x:Name="Abilities" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">
+                                    <Grid>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                            <RowDefinition/>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition/>
+                                            <ColumnDefinition/>
+                                        </Grid.ColumnDefinitions>
+
+                                        <TextBlock Margin="0 0 5 0" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="0" Text="Nom :"/>
+                                        <TextBlock Margin="0 0 5 0" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="1" Text="Type :"/>
+                                        <TextBlock Margin="0 0 5 0" FontSize="15" FontWeight="DemiBold" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="0" Grid.Row="2" Text="Dés :"/>
+
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="0" Text="{Binding Name}"/>
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="1" Text="{Binding Type}"/>
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="2" Text="{Binding Dice}"/>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Border Grid.Row="2"
+                            Background="#4F4557"
+                            CornerRadius="0 0 3 3"
+                            Height="50">
+
+                        <Border 
+                            Margin="5"
+                            Background="#1A5F7A"
+                            BorderBrush="#FF15536B"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                            <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Look"
+                                Click="Look_Click"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="+ Ajouter"
+                                FontSize="15"
+                                FontWeight="Bold"
+                                Foreground="White"
+                                Padding="5"/>
+                        </Border>
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

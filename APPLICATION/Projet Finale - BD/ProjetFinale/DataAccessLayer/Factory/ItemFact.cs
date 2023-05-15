@@ -26,7 +26,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 diceToRoll = reader["DiceToRoll"].ToString();
             }
             string description = reader.GetString("ObjectDescription");
-            int weight = reader.GetInt32("Weight");
+            decimal weight = reader.GetDecimal("Weight");
 
             Item newItem = new Item(id, name, diceToRoll, description, weight);
             return newItem;
