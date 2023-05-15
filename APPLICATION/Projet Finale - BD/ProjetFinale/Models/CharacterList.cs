@@ -46,6 +46,7 @@ namespace ProjetFinale.Models
             {
                 character.Characteristics = new DAL().CharacteristicsFact.GetCharacteristicsByCharacterId(character.Id);
                 character.Statistics = new DAL().StatisticsFact.GetStatisticsByCharacterId(character.Id);
+                character.Abilities = new DAL().AbilityFact.GetAbilityByCharacterId(character.Id);
                 character.Inventory = new DAL().ItemFact.GetInventoryByCharacterId(character.Id);
             }
             HighestLevelCharacters = dal.CharacterFact.GetHighestLvlCharacters();
