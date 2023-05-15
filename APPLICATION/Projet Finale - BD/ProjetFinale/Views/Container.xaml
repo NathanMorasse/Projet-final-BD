@@ -8,7 +8,7 @@
         Title="Serge le gestionnaire" 
         Height="450" 
         Width="800"
-        MinHeight="700"
+        MinHeight="775"
         MinWidth="1200"
         FontFamily="Bahnschrift">
     <Grid>
@@ -39,7 +39,8 @@
                       Margin="3"
                       Padding="3"
                       Background="#393646"
-                      BorderBrush="Transparent">
+                      BorderBrush="Transparent"
+                      IsExpanded="True">
                 <Grid Margin="0 0 10 0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="0.6*"/>
@@ -118,7 +119,7 @@
                                 Click="Abilities_Click"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
-                                Content="Capacités"
+                                Content="Habiletés"
                                 FontSize="30"
                                 Foreground="White"
                                 Padding="15"/>
