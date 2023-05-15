@@ -25,6 +25,39 @@ namespace ProjetFinale.DataAccessLayer.Factory
             return newAbility;
         }
 
+        public List<Ability> GetAllAbilities()
+        {
+            List<Ability> abilities = new List<Ability>();
+            MySqlConnection connection = null;
+            MySqlDataReader reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblability";
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Ability abilityTemp = CreateFromReader(reader);
+                    abilities.Add(abilityTemp);
+                }
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                connection.Close();
+            }
+
+            return abilities;
+        }
+
         public Ability GetAbilityById(int id)
         {
             Ability ability = new Ability();
@@ -69,8 +102,83 @@ namespace ProjetFinale.DataAccessLayer.Factory
 
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO tblability (NomAbility, DureeAbility, Distance, TypeAbility, DiceToRoll, DescriptionAbility) " +
-                    "VALUES(@Nom, @Duree, @Distance, \"Magic\", \"1d12\", \"Une grosse crisse de boule de feu\")";
+                    "VALUES(@Name, @Duration, @Distance, @Type, @DiceToRoll, @Description)";
                 cmd.Parameters.AddWithValue("@Name", newAbility.Name);
+                cmd.Parameters.AddWithValue("@Duration", newAbility.Duration);
+                cmd.Parameters.AddWithValue("@Distance", newAbility.Distance);
+                cmd.Parameters.AddWithValue("@Type", newAbility.Type);
+                cmd.Parameters.AddWithValue("@DiceToRoll", newAbility.DiceToRoll);
+                cmd.Parameters.AddWithValue("@Description", newAbility.Description);
+
+                cmd.ExecuteNonQuery();
+                newAbility.Id = (int)cmd.LastInsertedId;
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void DeleteAbility(Ability ability)
+        {
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE * FROM tblability " +
+                    "WHERE IdAbility = @IdAbility";
+                cmd.Parameters.AddWithValue("@IdAbility", ability.Id);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void AddAbilityToCharacter(int idCharacter, int idAbility)
+        {
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "INSERT INTO tblcharacterability " +
+                    "VALUES(@IdCharacter, @IdAbility)";
+                cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);
+                cmd.Parameters.AddWithValue("@IdAbility", idAbility);
+
+                cmd.ExecuteNonQuery();
+            }
+            finally
+            {
+                connection.Close();
+            }
+        }
+
+        public void RemoveAbilityFromCharacter(int idCharacter, int idAbility)
+        {
+            MySqlConnection connection = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "DELETE * FROM tblcharacterability " +
+                    "WHERE IdPerso = @IdCharacter " +
+                    "AND IdAbility = @IdAbility";
+                cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);
+                cmd.Parameters.AddWithValue("@IdAbility", idAbility);
 
                 cmd.ExecuteNonQuery();
             }
