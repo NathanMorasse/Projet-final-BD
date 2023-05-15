@@ -16,8 +16,24 @@ namespace ProjetFinale.DataAccessLayer.Factory
             int id = reader.GetInt32("IdCharacteristics");
             string classe = reader.GetString("Class");
             string race = reader.GetString("Race");
-            string description = reader.GetString("PersoDescription");
-            string background = reader.GetString("PersoBackGround");
+            string description;
+            if (reader["PersoDescription"].ToString() == null || reader["PersoDescription"].ToString() == string.Empty)
+            {
+                description = "";
+            }
+            else
+            {
+                description = reader["PersoDescription"].ToString();
+            }
+            string background;
+            if (reader["PersoBackGround"].ToString() == null || reader["PersoBackGround"].ToString() == string.Empty)
+            {
+                background = "";
+            }
+            else
+            {
+                background = reader["PersoBackGround"].ToString();
+            }
             string alignement = reader.GetString("Alignement");
 
             Characteristics newCharacteristics = new Characteristics(id, classe, race, description, background, alignement);

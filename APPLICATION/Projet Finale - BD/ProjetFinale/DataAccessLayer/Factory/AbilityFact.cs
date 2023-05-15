@@ -129,7 +129,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "DELETE * FROM tblability " +
+                cmd.CommandText = "DELETE FROM tblability " +
                     "WHERE IdAbility = @IdAbility";
                 cmd.Parameters.AddWithValue("@IdAbility", ability.Id);
 

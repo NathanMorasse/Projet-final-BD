@@ -42,6 +42,12 @@ namespace ProjetFinale.Models
         {
             DAL dal = new DAL();
             Characters = dal.CharacterFact.GetAllCharacters();
+            foreach(Character character in Characters)
+            {
+                character.Characteristics = new DAL().CharacteristicsFact.GetCharacteristicsByCharacterId(character.Id);
+                character.Statistics = new DAL().StatisticsFact.GetStatisticsByCharacterId(character.Id);
+                character.Inventory = new DAL().ItemFact.GetInventoryByCharacterId(character.Id);
+            }
             HighestLevelCharacters = dal.CharacterFact.GetHighestLvlCharacters();
             LastUpdatedCharacters = dal.CharacterFact.GetLastUpdatedCharacters();
         }

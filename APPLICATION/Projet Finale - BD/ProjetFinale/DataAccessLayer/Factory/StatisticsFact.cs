@@ -16,7 +16,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
             int id = reader.GetInt32("IdStats");
             int strength = reader.GetInt32("ForcePerso");
             int dexterity = reader.GetInt32("DexteritePerso");
-            int constitution = reader.GetInt32("Constitution");
+            int constitution = reader.GetInt32("ConstitutionPerso");
             int intelligence = reader.GetInt32("IntelligencePerso");
             int wisdom = reader.GetInt32("SagessePerso");
             int charisma = reader.GetInt32("CharismePerso");
