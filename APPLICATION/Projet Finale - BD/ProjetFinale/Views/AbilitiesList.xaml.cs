@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,29 +24,29 @@ namespace ProjetFinale.Views
         public AbilitiesList()
         {
             InitializeComponent();
+            this.DataContext = new VMAbilities();
+            //List<Test> test = new List<Test>();
 
-            List<Test> test = new List<Test>();
+            //test.Add(new Test("Feu", "Sors", "1D8"));
+            //test.Add(new Test("Soin", "Sors", "1D6"));
+            //test.Add(new Test("Coup de bate", "Bachir", "5D20"));
 
-            test.Add(new Test("Feu", "Sors", "1D8"));
-            test.Add(new Test("Soin", "Sors", "1D6"));
-            test.Add(new Test("Coup de bate", "Bachir", "5D20"));
-
-            Abilities.ItemsSource = test;
+            //Abilities.ItemsSource = test;
         }
 
-        public class Test
-        {
-            public string Name { get; set; }
-            public string Type { get; set; }
-            public string Dice { get; set; }
+        //public class Test
+        //{
+        //    public string Name { get; set; }
+        //    public string Type { get; set; }
+        //    public string Dice { get; set; }
 
-            public Test(string name, string type, string dice)
-            {
-                Name = name;
-                Type = type;
-                Dice = dice;
-            }
-        }
+        //    public Test(string name, string type, string dice)
+        //    {
+        //        Name = name;
+        //        Type = type;
+        //        Dice = dice;
+        //    }
+        //}
 
         private void Look_Click(object sender, RoutedEventArgs e)
         {

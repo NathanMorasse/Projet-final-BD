@@ -56,7 +56,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Close();
             }
 
-            return character;
+            return statistics;
         }
     }
 }

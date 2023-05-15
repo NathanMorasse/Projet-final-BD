@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using ProjetFinale.CustomExceptions;
+using ProjetFinale.DataAccessLayer;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace ProjetFinale.Models
         #region Fonctions
         public static void LoadAbilities()
         {
-            throw new NotImplementedException();
+            Abilities = new DAL().AbilityFact.GetAllAbilities();
         }
 
         public static void AddAbility(Ability Ajout)
@@ -38,6 +39,7 @@ namespace ProjetFinale.Models
             }
 
             Abilities.Add(Ajout);
+            new DAL().AbilityFact.AddAbility(Ajout);
         }
 
         public static void DeleteAbility(Ability Delete)
@@ -55,6 +57,7 @@ namespace ProjetFinale.Models
 
             if (exists)
             {
+                new DAL().AbilityFact.DeleteAbility(Delete);
                 Abilities.Remove(Delete);
             }
             else

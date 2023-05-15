@@ -104,7 +104,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.CommandText = "INSERT INTO tblability (NomAbility, DureeAbility, Distance, TypeAbility, DiceToRoll, DescriptionAbility) " +
                     "VALUES(@Name, @Duration, @Distance, @Type, @DiceToRoll, @Description)";
                 cmd.Parameters.AddWithValue("@Name", newAbility.Name);
-                cmd.Parameters.AddWithValue("@Duration", newAbility.Duration);
+                cmd.Parameters.AddWithValue("@Duration", newAbility.Rechargement);
                 cmd.Parameters.AddWithValue("@Distance", newAbility.Distance);
                 cmd.Parameters.AddWithValue("@Type", newAbility.Type);
                 cmd.Parameters.AddWithValue("@DiceToRoll", newAbility.DiceToRoll);
