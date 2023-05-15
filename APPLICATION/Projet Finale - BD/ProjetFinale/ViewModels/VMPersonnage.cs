@@ -266,7 +266,7 @@ namespace ProjetFinale.ViewModels
         private bool VerifModifCharacter()
         {
             if(CharacterSelection.Name != null && CharacterSelection.Name !=  string.Empty
-                && CharacterSelection.Level > 0 && CharacterSelection.Health >= 0 
+                && CharacterSelection.Level >= 0 && CharacterSelection.Health >= 0 
                 && CharacterSelection.Characteristics.Classe != null && CharacterSelection.Characteristics.Classe != string.Empty
                 && CharacterSelection.Characteristics.Alignement != null && CharacterSelection.Characteristics.Alignement != string.Empty
                 && CharacterSelection.Characteristics.Race != null && CharacterSelection.Characteristics.Race != string.Empty

@@ -70,7 +70,7 @@ namespace ProjetFinale.Views
 
         private void Look_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CharacterPage());
+            NavigationService.Navigate(new CharacterPage((VMPersonnage)this.DataContext));
         }
     }
 }

@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMPersonnage}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="StatsPage">
@@ -63,7 +65,7 @@
                                            HorizontalAlignment="Center"/>
                                 </Border>
 
-                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Health, Mode=TwoWay}"/>
                             </Grid>
 
                             <Grid Grid.Column="1" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -81,7 +83,7 @@
                                            HorizontalAlignment="Center"/>
                                 </Border>
 
-                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Level, Mode=TwoWay}"/>
                             </Grid>
 
                             <Grid Grid.Column="2" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -99,7 +101,7 @@
                                            HorizontalAlignment="Center"/>
                                 </Border>
 
-                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Armor, Mode=TwoWay}"/>
                             </Grid>
                         </Grid>
 
@@ -131,7 +133,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Strength,Mode=TwoWay}"/>
                                 </Grid>
 
                                 <Grid Grid.Column="1" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -149,7 +151,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Dexterity, Mode=TwoWay}"/>
                                 </Grid>
 
                                 <Grid Grid.Column="2" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -167,7 +169,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Constitution, Mode=TwoWay}"/>
                                 </Grid>
                             </Grid>
 
@@ -193,7 +195,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Intelligence, Mode=TwoWay}"/>
                                 </Grid>
 
                                 <Grid Grid.Column="1" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -211,7 +213,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Wisdom, Mode=TwoWay}"/>
                                 </Grid>
 
                                 <Grid Grid.Column="2" MaxWidth="200" MaxHeight="150" Margin="10">
@@ -229,7 +231,7 @@
                                            HorizontalAlignment="Center"/>
                                     </Border>
 
-                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4"/>
+                                    <TextBox Grid.Row="1" Style="{StaticResource CustomTextBoxStyleStats}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="40" FontFamily="Bahnschrift" MaxLength="4" Text="{Binding CharacterSelection.Statistics.Charisma, Mode=TwoWay}"/>
                                 </Grid>
                             </Grid>
                         </Grid>
@@ -257,7 +259,8 @@
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"
-                                Padding="5"/>
+                                Padding="5"
+                                Command="{Binding ModifCharacter, Mode=TwoWay}"/>
                     </Border>
                 </Border>
             </Grid>

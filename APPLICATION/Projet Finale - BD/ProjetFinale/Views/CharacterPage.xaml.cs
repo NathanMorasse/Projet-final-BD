@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,17 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class CharacterPage : Page
     {
-        public CharacterPage()
+        public CharacterPage(VMPersonnage dataContext)
         {
             InitializeComponent();
-            sub_frame.Navigate(new StatsPage());
+            VMPersonnage vm = dataContext;
+            this.DataContext = vm;
+            sub_frame.Navigate(new StatsPage((VMPersonnage)this.DataContext));
         }
 
         private void Stats_Click(object sender, RoutedEventArgs e)
         {
-            sub_frame.Navigate(new StatsPage());
+            sub_frame.Navigate(new StatsPage((VMPersonnage)this.DataContext));
         }
 
         private void Charateristic_Click(object sender, RoutedEventArgs e)
