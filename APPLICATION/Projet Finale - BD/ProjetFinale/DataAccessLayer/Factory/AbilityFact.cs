@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProjetFinale.Models
+namespace ProjetFinale.DataAccessLayer.Factory
 {
-    internal class PlaceHolder
+    internal class AbilityFact
     {
     }
 }
