@@ -240,7 +240,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "Delete * FROM tblcharacter WHERE IdCharacter = @Id";
+                cmd.CommandText = "Delete FROM tblcharacter WHERE IdCharacter = @Id";
                 cmd.Parameters.AddWithValue("@Id", character.Id);
 
                 cmd.ExecuteNonQuery();

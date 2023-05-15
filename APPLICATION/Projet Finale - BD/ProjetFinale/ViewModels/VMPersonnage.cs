@@ -48,7 +48,7 @@ namespace ProjetFinale.ViewModels
                 {
                     return new List<Character>();
                 }
-                return _characters;
+                return new List<Character>(_characters);
             }
             set
             {
@@ -144,6 +144,8 @@ namespace ProjetFinale.ViewModels
         #region Constructeur
         public VMPersonnage()
         {
+            CharacterList.LoadCharacters();
+            Characters = CharacterList.Characters;
             CreateCharacter = new CommandeRelais(CreateCharacter_Execute, CreateCharacter_CanExecute);
             DeleteCharacter = new CommandeRelais(DeleteCharacter_Execute, DeleteCharacter_CanExecute);
             ModifCharacter = new CommandeRelais(ModifCharacter_Execute, ModifCharacter_CanExecute);
@@ -178,6 +180,7 @@ namespace ProjetFinale.ViewModels
                 Character newCharacter = new Character(Name, Health);
                 newCharacter.Characteristics = new(Classe, Race, Description, Background, Alignement);
                 CharacterList.AddCharacter(newCharacter);
+                Characters = CharacterList.Characters;
             }
         }
 
@@ -186,6 +189,7 @@ namespace ProjetFinale.ViewModels
             if (VerifDeleteCharacter())
             {
                 CharacterList.DeleteCharacter(CharacterSelection);
+                Characters = CharacterList.Characters;
             }
         }
 
@@ -194,6 +198,7 @@ namespace ProjetFinale.ViewModels
             if (VerifModifCharacter())
             {
                 CharacterList.UpdateCharacter(CharacterSelection);
+                Characters = CharacterList.Characters;
             }
         }
 
