@@ -23,6 +23,32 @@ namespace ProjetFinale.Views
         public CharacterPage()
         {
             InitializeComponent();
+            sub_frame.Navigate(new StatsPage());
+        }
+
+        private void Stats_Click(object sender, RoutedEventArgs e)
+        {
+            sub_frame.Navigate(new StatsPage());
+        }
+
+        private void Charateristic_Click(object sender, RoutedEventArgs e)
+        {
+            sub_frame.Navigate(new CharPage());
+        }
+
+        private void Inventory_Click(object sender, RoutedEventArgs e)
+        {
+            sub_frame.Navigate(new InventoryPage());
+        }
+
+        private void Abilities_Click(object sender, RoutedEventArgs e)
+        {
+            sub_frame.Navigate(new AbilityPage());
+        }
+
+        private void sub_frame_Navigated(object sender, NavigationEventArgs e)
+        {
+
         }
     }
 }
