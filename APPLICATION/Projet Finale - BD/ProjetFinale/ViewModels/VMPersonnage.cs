@@ -184,6 +184,7 @@ namespace ProjetFinale.ViewModels
                     newCharacter.Characteristics = new(Classe, Race, Description, Background, Alignement);
                     CharacterList.AddCharacter(newCharacter);
                     Characters = CharacterList.Characters;
+                    CharacterSelection = Characters[Characters.Count - 1];
                 }
                 catch(Exception ex)
                 {
@@ -245,7 +246,7 @@ namespace ProjetFinale.ViewModels
         {
             if (Name != null && Name != string.Empty && Race != null && Race != string.Empty
                 && Classe != null && Classe != string.Empty && Alignement != null && Alignement != string.Empty
-                && Health < 0)
+                && Health >= 0)
             {
                 return true;
             }

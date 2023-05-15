@@ -177,16 +177,16 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection = new MySqlConnection(this.CnnStr);
                 connection.Open();
 
-                MySqlCommand cmd = new MySqlCommand("bd_projetfinal.CreateCharacter", connection);
+                MySqlCommand cmd = new MySqlCommand("CreateCharacter", connection);
                 cmd.CommandType = CommandType.StoredProcedure;
 
-                cmd.Parameters.AddWithValue("@Name", newCharacter.Name);
-                cmd.Parameters.AddWithValue("@Health", newCharacter.Health);
-                cmd.Parameters.AddWithValue("@Race", newCharacter.Characteristics.Race);
-                cmd.Parameters.AddWithValue("@Class", newCharacter.Characteristics.Classe);
-                cmd.Parameters.AddWithValue("@Description", newCharacter.Characteristics.Description);
-                cmd.Parameters.AddWithValue("@Background", newCharacter.Characteristics.Background);
-                cmd.Parameters.AddWithValue("@Alignement", newCharacter.Characteristics.Alignement);
+                cmd.Parameters.AddWithValue("@_Name", newCharacter.Name);
+                cmd.Parameters.AddWithValue("@_Health", newCharacter.Health);
+                cmd.Parameters.AddWithValue("@_Race", newCharacter.Characteristics.Race);
+                cmd.Parameters.AddWithValue("@_Class", newCharacter.Characteristics.Classe);
+                cmd.Parameters.AddWithValue("@_Description", newCharacter.Characteristics.Description);
+                cmd.Parameters.AddWithValue("@_Background", newCharacter.Characteristics.Background);
+                cmd.Parameters.AddWithValue("@_Alignement", newCharacter.Characteristics.Alignement);
 
                 cmd.Parameters.Add("@IdCharacter", MySqlDbType.Int32);
                 cmd.Parameters["@IdCharacter"].Direction = ParameterDirection.Output;
@@ -211,7 +211,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "call bd_projetfinal.UpdateCharacter(@Id, @Name, @Level, @Health, @Race, @Class, @Description, @Background, @Alignement, @Strength, @Dexterity, @Constitution, @Intelligence, @Wisdom, @Charisma, @Armor)";
+                cmd.CommandText = "call UpdateCharacter(@Id, @Name, @Level, @Health, @Race, @Class, @Description, @Background, @Alignement, @Strength, @Dexterity, @Constitution, @Intelligence, @Wisdom, @Charisma, @Armor)";
                 cmd.Parameters.AddWithValue("@Id", newCharacter.Id);
                 cmd.Parameters.AddWithValue("@Name", newCharacter.Name);
                 cmd.Parameters.AddWithValue("@Level", newCharacter.Level);

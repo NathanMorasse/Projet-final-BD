@@ -4,11 +4,172 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMItem}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="AddObject">
+      Title="Ajouter un objet">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border CornerRadius="3" Background="#393646">
+            <Grid Margin="10">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#4F4557"
+                            CornerRadius="3 3 0 0">
+
+                        <Grid>
+                            <Label Grid.Column="0"
+                           Margin="3"
+                           FontSize="20" 
+                           FontWeight="DemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Content="Nouvel objet"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" 
+                            Background="#6D5D6E" 
+                            BorderBrush="#4F4557"
+                            BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Nom :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Grid.Column="1"
+                                 Grid.Row="0"
+                                 Margin="10"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding Name, Mode=TwoWay}">
+                            </TextBox>
+
+                            <Label Content="Dés à lancer :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Grid.Column="1"
+                                 Grid.Row="1"
+                                 Margin="10"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding DiceToRoll, Mode=TwoWay}">
+                            </TextBox>
+
+                            <Label Content="Description :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="2"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Grid.Column="1"
+                                 Grid.Row="2"
+                                 Margin="10"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding Description, Mode=TwoWay}">
+                            </TextBox>
+
+                            <Label Content="Poids :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="3"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Grid.Column="1"
+                                 Grid.Row="3"
+                                 Margin="10"
+                                 VerticalContentAlignment="Center"
+                                 Text="{Binding Weight, Mode=TwoWay}">
+                            </TextBox>
+
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="2"
+                            Background="#4F4557"
+                            CornerRadius="0 0 3 3"
+                            Height="50">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Border Grid.Column="0" 
+                                Margin="5"
+                                Background="#CE5959"
+                                BorderBrush="#B04759"
+                                BorderThickness="2"
+                                CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyleHover}" 
+                                    x:Name="CancelAdd"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Content="⦸ Annuler"
+                                    FontSize="15"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Padding="5"
+                                    Click="Cancel"/>
+                            </Border>
+
+                            <Border Grid.Column="1" 
+                                Margin="5"
+                                Background="#1A5F7A"
+                                BorderBrush="#FF15536B"
+                                BorderThickness="2"
+                                CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyleHover}" 
+                                    x:Name="Add"
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    Content="+ Ajouter"
+                                    FontSize="15"
+                                    FontWeight="Bold"
+                                    Foreground="White"
+                                    Padding="5"
+                                    Command="{Binding CreateItem,Mode=TwoWay}"
+                                    Click="GoBack"/>
+                            </Border>
+                        </Grid>
+
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

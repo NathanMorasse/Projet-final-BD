@@ -120,6 +120,7 @@ namespace ProjetFinale.ViewModels
             ItemList.LoadItems();
             Items = ItemList.Items;
             DeleteItem = new CommandeRelais(DeleteItem_Execute, DeletedItem_CanExecute);
+            CreateItem = new CommandeRelais(CreateItem_Execute, CreateItem_CanExecute);
         }
         #endregion
 
@@ -162,6 +163,7 @@ namespace ProjetFinale.ViewModels
                 {
                     ItemList.AddItem(new(Name, DiceToRoll, Description, Weight));
                     Items = ItemList.Items;
+                    ItemSelection = Items[Items.Count - 1];
                 }
                 catch(Exception ex)
                 {

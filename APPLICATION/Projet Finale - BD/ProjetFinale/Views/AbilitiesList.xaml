@@ -182,7 +182,7 @@
                                 FontWeight="Bold"
                                 Foreground="White"
                                 Padding="5"
-                                 Command="{Binding DeleteCharacter, Mode=TwoWay}"/>
+                                 Command="{Binding DeleteAbility,Mode=TwoWay}"/>
                             </Border>
 
                         </Grid>

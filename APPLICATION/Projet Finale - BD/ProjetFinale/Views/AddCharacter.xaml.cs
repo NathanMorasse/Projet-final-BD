@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjetFinale.Models;
+using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +15,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
+
 namespace ProjetFinale.Views
 {
     /// <summary>
@@ -20,9 +23,21 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class AddCharacter : Page
     {
-        public AddCharacter()
+        public AddCharacter(VMPersonnage dataContext)
         {
             InitializeComponent();
+            VMPersonnage vm = dataContext;
+            this.DataContext = vm;
+        }
+
+        private void CancelAdd(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProjetFinale.Views.CharactersList());
+        }
+
+        private void GoBack(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new ProjetFinale.Views.CharactersList((VMPersonnage)this.DataContext));
         }
     }
 }

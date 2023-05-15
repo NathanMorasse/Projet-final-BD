@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:ProjetFinale.Views"
         mc:Ignorable="d"
         Title="Serge le gestionnaire" 
+        Icon="/img/icon.ico"
         Height="450" 
         Width="800"
         MinHeight="775"

@@ -38,6 +38,13 @@ namespace ProjetFinale.Views
             //Objects.ItemsSource = test;
         }
 
+        public ObjectsList(VMItem dataContext)
+        {
+            InitializeComponent();
+            VMItem vm = dataContext;
+            this.DataContext = vm;
+        }
+
         //public class Test
         //{
         //    public string Name { get; set; }
@@ -52,7 +59,7 @@ namespace ProjetFinale.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new AddObject());
+            NavigationService.Navigate(new AddObject((VMItem)this.DataContext));
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
