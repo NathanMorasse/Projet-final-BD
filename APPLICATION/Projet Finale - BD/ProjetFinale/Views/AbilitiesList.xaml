@@ -256,8 +256,8 @@
                             BorderThickness="2"
                             CornerRadius="10">
                             <Button Style="{DynamicResource ButtonStyleHover}" 
-                                x:Name="Look"
-                                Click="Look_Click"
+                                x:Name="Add"
+                                Click="Add_Click"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 Content="+ Ajouter"

@@ -53,7 +53,7 @@ namespace ProjetFinale.Views
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddCharacter());
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
@@ -63,7 +63,7 @@ namespace ProjetFinale.Views
 
         private void Look_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new CharacterPage());
         }
     }
 }
