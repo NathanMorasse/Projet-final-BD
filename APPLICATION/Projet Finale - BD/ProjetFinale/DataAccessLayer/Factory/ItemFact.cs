@@ -15,7 +15,16 @@ namespace ProjetFinale.DataAccessLayer.Factory
         {
             int id = reader.GetInt32("IdObject");
             string name = reader.GetString("ObjectName");
-            string diceToRoll = reader.GetString("DiceToRoll") ?? "Aucun";
+
+            string diceToRoll;
+            if (reader["DiceToRoll"] == null || reader["DiceToRoll"].ToString() == "" || reader["DiceToRoll"].ToString() == string.Empty)
+            {
+                diceToRoll = "Aucun";
+            }
+            else
+            {
+                diceToRoll = reader["DiceToRoll"].ToString();
+            }
             string description = reader.GetString("ObjectDescription");
             decimal weight = reader.GetDecimal("Weight");
 
@@ -125,7 +134,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "DELETE * FROM tblobject " +
+                cmd.CommandText = "DELETE FROM tblobject " +
                     "WHERE IdObject = @Id";
                 cmd.Parameters.AddWithValue("@Id", item.Id);
 

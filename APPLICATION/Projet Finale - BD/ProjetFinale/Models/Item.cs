@@ -68,6 +68,14 @@ namespace ProjetFinale.Models
             Description = description;
             Weight = weight;
         }
+
+        public Item(string name, string diceToRoll, string description, decimal weight)
+        {
+            Name = name;
+            DiceToRoll = diceToRoll;
+            Description = description;
+            Weight = weight;
+        }
         #endregion
     }
 }

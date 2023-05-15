@@ -1,6 +1,7 @@
 ﻿using ProjetFinale.CustomExceptions;
 using System;
 using System.Collections.Generic;
+using ProjetFinale.DataAccessLayer;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -26,7 +27,7 @@ namespace ProjetFinale.Models
 
         public static void LoadItems()
         {
-            throw new NotImplementedException();
+            Items = new DAL().ItemFact.GetAllItems();
         }
         public static void AddItem(Item Ajout)
         {
@@ -38,6 +39,7 @@ namespace ProjetFinale.Models
                 }
             }
 
+            new DAL().ItemFact.AddItem(Ajout);
             Items.Add(Ajout);
         }
 
@@ -56,6 +58,7 @@ namespace ProjetFinale.Models
 
             if (exists)
             {
+                new DAL().ItemFact.DeleteItem(Delete);
                 Items.Remove(Delete);
             }
             else

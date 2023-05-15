@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ProjetFinale.ViewModels;
 
 namespace ProjetFinale.Views
 {
@@ -23,31 +24,31 @@ namespace ProjetFinale.Views
         public ObjectsList()
         {
             InitializeComponent();
+            this.DataContext = new VMItem();
+            //List<Test> test = new List<Test>();
 
-            List<Test> test = new List<Test>();
+            //test.Add(new Test("Pomme", 50));
+            //test.Add(new Test("Avion", 10));
+            //test.Add(new Test("Auto", 30));
+            //test.Add(new Test("Épée", 55));
+            //test.Add(new Test("Roger", 20));
+            //test.Add(new Test("Toutou", 15));
+            //test.Add(new Test("Poire", 15));
 
-            test.Add(new Test("Pomme", 50));
-            test.Add(new Test("Avion", 10));
-            test.Add(new Test("Auto", 30));
-            test.Add(new Test("Épée", 55));
-            test.Add(new Test("Roger", 20));
-            test.Add(new Test("Toutou", 15));
-            test.Add(new Test("Poire", 15));
-
-            Objects.ItemsSource = test;
+            //Objects.ItemsSource = test;
         }
 
-        public class Test
-        {
-            public string Name { get; set; }
-            public double Weight { get; set; }
+        //public class Test
+        //{
+        //    public string Name { get; set; }
+        //    public double Weight { get; set; }
 
-            public Test(string name, double weight)
-            {
-                Name = name;
-                Weight = weight;
-            }
-        }
+        //    public Test(string name, double weight)
+        //    {
+        //        Name = name;
+        //        Weight = weight;
+        //    }
+        //}
 
         private void Look_Click(object sender, RoutedEventArgs e)
         {

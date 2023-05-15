@@ -9,6 +9,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ProjetFinale.ViewModels
@@ -177,10 +178,17 @@ namespace ProjetFinale.ViewModels
         {
             if (VerifCreateCharacter())
             {
-                Character newCharacter = new Character(Name, Health);
-                newCharacter.Characteristics = new(Classe, Race, Description, Background, Alignement);
-                CharacterList.AddCharacter(newCharacter);
-                Characters = CharacterList.Characters;
+                try
+                {
+                    Character newCharacter = new Character(Name, Health);
+                    newCharacter.Characteristics = new(Classe, Race, Description, Background, Alignement);
+                    CharacterList.AddCharacter(newCharacter);
+                    Characters = CharacterList.Characters;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -188,8 +196,15 @@ namespace ProjetFinale.ViewModels
         {
             if (VerifDeleteCharacter())
             {
-                CharacterList.DeleteCharacter(CharacterSelection);
-                Characters = CharacterList.Characters;
+                try
+                {
+                    CharacterList.DeleteCharacter(CharacterSelection);
+                    Characters = CharacterList.Characters;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
@@ -197,8 +212,15 @@ namespace ProjetFinale.ViewModels
         {
             if (VerifModifCharacter())
             {
-                CharacterList.UpdateCharacter(CharacterSelection);
-                Characters = CharacterList.Characters;
+                try
+                {
+                    CharacterList.UpdateCharacter(CharacterSelection);
+                    Characters = CharacterList.Characters;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
             }
         }
 
