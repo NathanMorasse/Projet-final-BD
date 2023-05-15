@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Windows;
+using System.Data;
 
 namespace ProjetFinale.DataAccessLayer.Factory
 {
@@ -176,8 +177,9 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection = new MySqlConnection(this.CnnStr);
                 connection.Open();
 
-                MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "call bd_projetfinal.CreateCharacter(@Name, @Health, @Race, @Class, @Description, @Background, @Alignement)";
+                MySqlCommand cmd = new MySqlCommand("bd_projetfinal.CreateCharacter", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+
                 cmd.Parameters.AddWithValue("@Name", newCharacter.Name);
                 cmd.Parameters.AddWithValue("@Health", newCharacter.Health);
                 cmd.Parameters.AddWithValue("@Race", newCharacter.Characteristics.Race);
@@ -186,7 +188,12 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 cmd.Parameters.AddWithValue("@Background", newCharacter.Characteristics.Background);
                 cmd.Parameters.AddWithValue("@Alignement", newCharacter.Characteristics.Alignement);
 
+                cmd.Parameters.Add("@IdCharacter", MySqlDbType.Int32);
+                cmd.Parameters["@IdCharacter"].Direction = ParameterDirection.Output;
+
                 cmd.ExecuteNonQuery();
+
+                newCharacter.Id = (int)cmd.Parameters["@IdCharacter"].Value;
             }
             finally
             {
