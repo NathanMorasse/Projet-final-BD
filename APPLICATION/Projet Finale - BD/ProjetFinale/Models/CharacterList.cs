@@ -54,9 +54,9 @@ namespace ProjetFinale.Models
                 {
                     throw new CharacterALreadyExistsException("Ce personnage existe déjà");
                 }
-
-                Characters.Add(character);
             }
+            Characters.Add(Ajout);
+            new DAL().CharacterFact.AddCharacter(Ajout);
         }
 
         public static void UpdateCharacter(Character Modif)
@@ -73,6 +73,7 @@ namespace ProjetFinale.Models
             }
 
             Characters[index] = Modif;
+            new DAL().CharacterFact.UpdateCharacter(Modif);
         }
 
         public static void DeleteCharacter(Character Delete)
@@ -96,6 +97,8 @@ namespace ProjetFinale.Models
             {
                 throw new CharacterDoesNotExistException("Le personnage n'existe pas dans la liste des personnages.");
             }
+
+            new DAL().CharacterFact.DeleteCharacter(Delete);
         }
         #endregion
     }

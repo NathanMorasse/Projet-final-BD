@@ -116,6 +116,11 @@ namespace ProjetFinale.Models
             this.DateModif = dateModif;
         }
 
+        public Character(string name, int health)
+        {
+            this.Name = name;
+            this.Health = health;
+        }
         #endregion
 
         #region Fonctions
