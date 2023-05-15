@@ -91,6 +91,40 @@ namespace ProjetFinale.DataAccessLayer.Factory
             return ability;
         }
 
+        public List<Ability> GetAbilityByCharacterId(int id)
+        {
+            List<Ability> abilities = new List<Ability>();
+            MySqlConnection connection = null;
+            MySqlDataReader reader = null;
+
+            try
+            {
+                connection = new MySqlConnection(this.CnnStr);
+                connection.Open();
+
+                MySqlCommand cmd = connection.CreateCommand();
+                cmd.CommandText = "SELECT * FROM tblCharacterAbility WHERE IdPerso = @Id";
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    Ability temp = GetAbilityById((int)reader["IdAbility"]);
+                    abilities.Add(temp);
+                }
+            }
+            finally
+            {
+                if (reader != null)
+                {
+                    reader.Close();
+                }
+                connection.Close();
+            }
+
+            return abilities;
+        }
+
         public void AddAbility(Ability newAbility)
         {
             MySqlConnection connection = null;

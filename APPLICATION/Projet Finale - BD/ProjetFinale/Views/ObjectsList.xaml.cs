@@ -50,14 +50,9 @@ namespace ProjetFinale.Views
         //    }
         //}
 
-        private void Look_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-
+            NavigationService.Navigate(new AddObject());
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
