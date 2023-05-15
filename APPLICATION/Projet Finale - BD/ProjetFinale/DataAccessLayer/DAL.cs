@@ -12,7 +12,6 @@ namespace ProjetFinale.DataAccessLayer
         private AbilityFact _abilityFact = null;
         private CharacterFact _characterFact = null;
         private CharacteristicsFact _characteristicsFact = null;
-        private InventoryFact _inventoryFact = null;
         private ItemFact _itemFact = null;
         private StatisticsFact _statisticsFact = null;
 
@@ -49,18 +48,6 @@ namespace ProjetFinale.DataAccessLayer
                     _characteristicsFact = new CharacteristicsFact();
                 }
                 return _characteristicsFact;
-            }
-        }
-
-        public InventoryFact? InventoryFact
-        {
-            get
-            {
-                if (_inventoryFact == null)
-                {
-                    _inventoryFact = new InventoryFact();
-                }
-                return _inventoryFact;
             }
         }
 

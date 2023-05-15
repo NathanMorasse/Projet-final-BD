@@ -14,6 +14,7 @@ namespace ProjetFinale.Models
         private string _diceToRoll;
         private string _description;
         private decimal _weight;
+        private int _quantity;
         #endregion
 
         #region Propriétés
@@ -45,6 +46,12 @@ namespace ProjetFinale.Models
         {
             get { return _weight; }
             set { _weight = value; }
+        }
+
+        public int Quantity
+        {
+            get { return _quantity; }
+            set { _quantity = value; }
         }
 
         #endregion
