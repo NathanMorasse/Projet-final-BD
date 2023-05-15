@@ -27,10 +27,11 @@ namespace ProjetFinale.DataAccessLayer.Factory
         private Character CreateFromReaderWithDate(Character character, DateTime dateModif)
         {
             int id = character.Id;
+            string name = character.Name;
             int level = character.Level;
             DateTime date = dateModif;
 
-            return new(id, level, date);
+            return new(id,name, level, date);
         }
 
         public List<Character> GetAllCharacters()

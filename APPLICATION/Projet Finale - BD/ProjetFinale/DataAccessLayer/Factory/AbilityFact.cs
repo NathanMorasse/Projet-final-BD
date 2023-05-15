@@ -70,7 +70,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "INSERT INTO tblability (NomAbility, DureeAbility, Distance, TypeAbility, DiceToRoll, DescriptionAbility) " +
                     "VALUES(@Nom, @Duree, @Distance, \"Magic\", \"1d12\", \"Une grosse crisse de boule de feu\")";
-                cmd.Parameters.AddWithValue("@Name", newCharacter.Name);
+                cmd.Parameters.AddWithValue("@Name", newAbility.Name);
 
                 cmd.ExecuteNonQuery();
             }

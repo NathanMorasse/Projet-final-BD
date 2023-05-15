@@ -108,9 +108,10 @@ namespace ProjetFinale.Models
             Abilities = new List<Ability>();
         }
 
-        public Character(int id, int level, DateTime dateModif)
+        public Character(int id,string name, int level, DateTime dateModif)
         {
             this.Id = id;
+            this.Name = name;
             this.Level = level;
             this.DateModif = dateModif;
         }
