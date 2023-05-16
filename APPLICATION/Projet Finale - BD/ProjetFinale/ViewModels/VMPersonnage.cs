@@ -30,7 +30,11 @@ namespace ProjetFinale.ViewModels
 
         #region Attribut
         private List<Character> _characters;
+        private List<Item> _items;
+        private List<Item> _characterInventory;
         private Character _characterSelection;
+        private Item _itemSelection;
+        private Item _inventorySelectedItem;
         private string _name;
         private string _race;
         private string _classe;
@@ -58,6 +62,40 @@ namespace ProjetFinale.ViewModels
             }
         }
 
+        public List<Item> Items
+        {
+            get
+            {
+                if (_items == null)
+                {
+                    return new List<Item>();
+                }
+                return new List<Item>(_items);
+            }
+            set
+            {
+                _items = value;
+                ChangeValue("Items");
+            }
+        }
+
+        public List<Item> CharacterInventory
+        {
+            get
+            {
+                if(CharacterSelection.Inventory == null)
+                {
+                    return new List<Item>();
+                }
+                return new List<Item>(CharacterSelection.Inventory);
+            }
+            set
+            {
+                _characterInventory = CharacterSelection.Inventory;
+                ChangeValue("CharacterInventory");
+            }
+        }
+
         public Character CharacterSelection
         {
             get
@@ -68,6 +106,32 @@ namespace ProjetFinale.ViewModels
             {
                 _characterSelection = value;
                 ChangeValue("CharacterSelection");
+            }
+        }
+
+        public Item ItemSelection
+        {
+            get
+            {
+                return _itemSelection;
+            }
+            set
+            {
+                _itemSelection = value;
+                ChangeValue("ItemSelection");
+            }
+        }
+
+        public Item InventorySelectedItem
+        {
+            get
+            {
+                return _inventorySelectedItem;
+            }
+            set
+            {
+                _inventorySelectedItem = value;
+                ChangeValue("InventorySelectedItem");
             }
         }
 
@@ -147,9 +211,13 @@ namespace ProjetFinale.ViewModels
         {
             CharacterList.LoadCharacters();
             Characters = CharacterList.Characters;
+            ItemList.LoadItems();
+            Items = ItemList.Items;
             CreateCharacter = new CommandeRelais(CreateCharacter_Execute, CreateCharacter_CanExecute);
             DeleteCharacter = new CommandeRelais(DeleteCharacter_Execute, DeleteCharacter_CanExecute);
             ModifCharacter = new CommandeRelais(ModifCharacter_Execute, ModifCharacter_CanExecute);
+            AjoutItemInventory = new CommandeRelais(AjoutItemInventory_Execute, AjoutItemInventory_CanExecute);
+            DeleteItemInventory = new CommandeRelais(DeleteItemInventory_Execute, DeleteItemInventory_CanExecute);
         }
         #endregion
 
@@ -173,6 +241,20 @@ namespace ProjetFinale.ViewModels
         {
             get { return _modifCharacter; }
             set { _modifCharacter = value; }
+        }
+
+        private ICommand _ajoutItemInventory;
+        public ICommand AjoutItemInventory
+        {
+            get { return _ajoutItemInventory;}
+            set { _ajoutItemInventory = value;}
+        }
+
+        private ICommand _deleteItemInventory;
+        public ICommand DeleteItemInventory
+        {
+            get { return _deleteItemInventory; }
+            set { _deleteItemInventory = value; }
         }
         private void CreateCharacter_Execute(object Parameter)
         {
@@ -218,12 +300,55 @@ namespace ProjetFinale.ViewModels
                     CharacterList.UpdateCharacter(CharacterSelection);
                     Characters = CharacterList.Characters;
                 }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void AjoutItemInventory_Execute(object parameter)
+        {
+            if (VerifAjoutItemToInventory())
+            {
+                try
+                {
+
+                    CharacterSelection.AddItem(ItemSelection, CharacterSelection.Id);
+                    CharacterInventory = CharacterSelection.Inventory;
+                    ChangeValue("CharacterInventory");
+                    ChangeValue("CharacterSelection");
+                }
                 catch(Exception ex)
                 {
                     MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
         }
+
+        private void DeleteItemInventory_Execute(object parameter)
+        {
+            if (VerifDeleteItemFromInventory())
+            {
+                try
+                {
+                    CharacterSelection.DeleteItem(InventorySelectedItem, CharacterSelection.Id);
+                    CharacterInventory = CharacterSelection.Inventory;
+                    ChangeValue("CharacterInventory");
+                    ChangeValue("CharacterSelection");
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private bool AjoutItemInventory_CanExecute(object parameter)
+        {
+            return true;
+        }
+
 
         private bool CreateCharacter_CanExecute(object Parameter)
         {
@@ -235,7 +360,12 @@ namespace ProjetFinale.ViewModels
             return true;
         }
 
-        private bool ModifCharacter_CanExecute(Object Parameter)
+        private bool ModifCharacter_CanExecute(object Parameter)
+        {
+            return true;
+        }
+
+        private bool DeleteItemInventory_CanExecute(object parameter)
         {
             return true;
         }
@@ -277,6 +407,25 @@ namespace ProjetFinale.ViewModels
                 return true;
             }
 
+            return false;
+        }
+
+        private bool VerifAjoutItemToInventory()
+        {
+            if(CharacterSelection != null && ItemSelection != null)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        private bool VerifDeleteItemFromInventory()
+        {
+            if(CharacterSelection != null && InventorySelectedItem != null)
+            {
+                return true;
+            }
             return false;
         }
         #endregion

@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMPersonnage}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="InventoryPage">
@@ -39,7 +41,7 @@
                         </Grid>
                     </Border>
 
-                    <ListBox Grid.Row="1" x:Name="Inventory" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557">
+                    <ListBox Grid.Row="1" x:Name="Inventory" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding CharacterInventory}" SelectedItem="{Binding InventorySelectedItem, Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">
@@ -62,7 +64,7 @@
 
                                         <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="0" Text="{Binding Name}"/>
                                         <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="1" Text="{Binding Weight}"/>
-                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="2" Text="{Binding Dice}"/>
+                                        <TextBlock Margin="5 0 0 0" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="2" Text="{Binding DiceToRoll}"/>
                                         <TextBlock Margin="5 0 0 10" FontSize="15" TextAlignment="Left" VerticalAlignment="Center" Foreground="White" Grid.Column="1" Grid.Row="3" Text="{Binding Quantity}"/>
                                     </Grid>
                                 </Border>
@@ -89,7 +91,8 @@
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"
-                                Padding="5"/>
+                                Padding="5"
+                                Command="{Binding DeleteItemInventory,Mode=TwoWay}"/>
                         </Border>
                     </Border>
                 </Grid>
@@ -121,7 +124,7 @@
                         </Grid>
                     </Border>
 
-                    <ListBox Grid.Row="1" x:Name="Objects" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557">
+                    <ListBox Grid.Row="1" x:Name="Objects" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding Items, Mode=TwoWay}" SelectedItem="{Binding ItemSelection,Mode=TwoWay}">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">
@@ -154,7 +157,7 @@
                            VerticalAlignment="Center"
                            Content="Qts :"/>
 
-                            <TextBox Grid.Column="1" Margin="0 5" Style="{StaticResource CustomTextBoxStyleNormal}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Bahnschrift" MaxLength="3"/>
+                            <TextBox Grid.Column="1" Margin="0 5" Style="{StaticResource CustomTextBoxStyleNormal}" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="16" FontFamily="Bahnschrift" MaxLength="3" Text="{Binding ItemSelection.Quantity}"/>
 
                             <Border 
                             Grid.Column="2"
@@ -171,7 +174,8 @@
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"
-                                Padding="5"/>
+                                Padding="5"
+                                Command="{Binding AjoutItemInventory,Mode=TwoWay}"/>
                             </Border>
                         </Grid>
                     </Border>

@@ -208,7 +208,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 connection.Open();
 
                 MySqlCommand cmd = connection.CreateCommand();
-                cmd.CommandText = "DELETE * FROM tblcharacterability " +
+                cmd.CommandText = "DELETE FROM tblcharacterability " +
                     "WHERE IdPerso = @IdCharacter " +
                     "AND IdAbility = @IdAbility";
                 cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);

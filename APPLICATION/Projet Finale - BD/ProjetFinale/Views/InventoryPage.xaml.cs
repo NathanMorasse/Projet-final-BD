@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,59 +21,60 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class InventoryPage : Page
     {
-        public InventoryPage()
+        public InventoryPage(VMPersonnage dataContext)
         {
             InitializeComponent();
+            VMPersonnage vm = dataContext;
+            this.DataContext = vm;
+            //List<Test> t = new List<Test>();
 
-            List<Test> t = new List<Test>();
+            //t.Add(new Test("Avion"));
+            //t.Add(new Test("Bob"));
+            //t.Add(new Test("Épée"));
+            //t.Add(new Test("Roger"));
+            //t.Add(new Test("Voiture"));
+            //t.Add(new Test("Lance"));
+            //t.Add(new Test("Concombre"));
 
-            t.Add(new Test("Avion"));
-            t.Add(new Test("Bob"));
-            t.Add(new Test("Épée"));
-            t.Add(new Test("Roger"));
-            t.Add(new Test("Voiture"));
-            t.Add(new Test("Lance"));
-            t.Add(new Test("Concombre"));
+            //Objects.ItemsSource = t;
 
-            Objects.ItemsSource = t;
+            //List<Test2> i = new List<Test2>();
 
-            List<Test2> i = new List<Test2>();
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
+            //i.Add(new Test2("Avion", 50, "1D8", 2));
 
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-            i.Add(new Test2("Avion", 50, "1D8", 2));
-
-            Inventory.ItemsSource = i;
+            //Inventory.ItemsSource = i;
         }
 
-        public class Test
-        {
-            public string Name { get; set; }
+        //public class Test
+        //{
+        //    public string Name { get; set; }
 
-            public Test(string name)
-            {
-                Name = name;
-            }
-        }
+        //    public Test(string name)
+        //    {
+        //        Name = name;
+        //    }
+        //}
 
-        public class Test2
-        {
-            public string Name { get; set; }
-            public double Weight { get; set; }
-            public string Dice { get; set; }
-            public int Quantity { get; set; }
+        //public class Test2
+        //{
+        //    public string Name { get; set; }
+        //    public double Weight { get; set; }
+        //    public string Dice { get; set; }
+        //    public int Quantity { get; set; }
 
-            public Test2(string name, double weight, string dice, int quantity)
-            {
-                Name = name;
-                Weight = weight;
-                Dice = dice;
-                Quantity = quantity;
-            }
-        }
+        //    public Test2(string name, double weight, string dice, int quantity)
+        //    {
+        //        Name = name;
+        //        Weight = weight;
+        //        Dice = dice;
+        //        Quantity = quantity;
+        //    }
+        //}
     }
 }

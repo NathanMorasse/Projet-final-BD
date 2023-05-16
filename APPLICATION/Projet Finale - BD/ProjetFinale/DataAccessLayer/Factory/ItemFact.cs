@@ -217,7 +217,7 @@ namespace ProjetFinale.DataAccessLayer.Factory
                 MySqlCommand cmd = connection.CreateCommand();
                 cmd.CommandText = "DELETE FROM tblinventory " +
                     "WHERE IdObject = @IdItem " +
-                    "AND IdCharacter = @IdCharacter";
+                    "AND IdPerso = @IdCharacter";
                 cmd.Parameters.AddWithValue("@IdItem", idItem);
                 cmd.Parameters.AddWithValue("@IdCharacter", idCharacter);
 

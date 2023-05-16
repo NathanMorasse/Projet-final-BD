@@ -41,7 +41,7 @@ namespace ProjetFinale.Views
 
         private void Inventory_Click(object sender, RoutedEventArgs e)
         {
-            sub_frame.Navigate(new InventoryPage());
+            sub_frame.Navigate(new InventoryPage((VMPersonnage)this.DataContext));
         }
 
         private void Abilities_Click(object sender, RoutedEventArgs e)

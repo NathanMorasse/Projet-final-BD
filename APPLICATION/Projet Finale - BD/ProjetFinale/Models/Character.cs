@@ -7,6 +7,7 @@ using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using ProjetFinale.CustomExceptions;
+using ProjetFinale.DataAccessLayer;
 
 namespace ProjetFinale.Models
 {
@@ -72,7 +73,14 @@ namespace ProjetFinale.Models
 
         public List<Item> Inventory
         {
-            get { return _inventory; }
+            get 
+            {
+                if( _inventory == null)
+                {
+                    return new List<Item>();
+                }
+                return _inventory;
+            }
             set { _inventory = value; }
         }
 
@@ -125,7 +133,7 @@ namespace ProjetFinale.Models
 
         #region Fonctions
 
-        public void AddAbility(Ability Ajout)
+        public void AddAbility(Ability Ajout, Character Character)
         {
             foreach(Ability ability in Abilities)
             {
@@ -158,6 +166,43 @@ namespace ProjetFinale.Models
             else
             {
                 throw new AbilityNotInListException("L'habileté n'existe pas dans la liste.");
+            }
+        }
+
+        public void AddItem(Item Ajout, int IdCharacter)
+        {
+            foreach (Item itme in Inventory)
+            {
+                if (itme.Name == Ajout.Name)
+                {
+                    throw new AbilityAlreadyInListException("L'item est déjà dans l'inventaire.");
+                }
+            }
+            Inventory.Add(Ajout);
+            new DAL().ItemFact.AddItemToCharacterInventory(Ajout.Id, IdCharacter, Ajout.Quantity);
+        }
+
+        public void DeleteItem(Item Delete, int idCharacter)
+        {
+            bool exists = false;
+            foreach (Item item in Inventory)
+            {
+                if (item.Name == Delete.Name)
+                {
+                    exists = true;
+                    break;
+                }
+            }
+
+
+            if (exists)
+            {
+                Inventory.Remove(Delete);
+                new DAL().ItemFact.RemoveItemFromCharacterInventory(Delete.Id, idCharacter);
+            }
+            else
+            {
+                throw new AbilityNotInListException("L'item n'existe pas dans l'inventaire.");
             }
         }
         #endregion
