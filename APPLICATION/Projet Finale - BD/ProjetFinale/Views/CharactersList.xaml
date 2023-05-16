@@ -200,7 +200,6 @@
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 Content="⌫ Supprimer"
-                                IsEnabled="False"
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"

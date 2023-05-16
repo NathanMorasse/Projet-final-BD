@@ -90,7 +90,7 @@
                             <WrapPanel Grid.Row="2"
                                        Orientation="Horizontal"
                                        HorizontalAlignment="Center">
-                                <Label Content="Dés associer :"
+                                <Label Content="Dés associé :"
                                        FontSize="23"
                                        FontFamily="Bahnschrift"
                                        Foreground="White"/>
@@ -99,6 +99,7 @@
                                            VerticalAlignment="Center"
                                            FontSize="23"
                                            FontFamily="Bahnschrift"
+                                           
                                            Foreground="White"/>
                             </WrapPanel>
 

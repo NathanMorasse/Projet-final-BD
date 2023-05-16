@@ -107,7 +107,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Text="{Binding DiceToRoll, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                            <TextBox Text="{Binding DiceToRoll, Mode=TwoWay}" MaxLength="6" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Description :"
                                FontSize="23"

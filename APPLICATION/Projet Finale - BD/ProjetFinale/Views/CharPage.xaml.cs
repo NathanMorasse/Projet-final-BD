@@ -25,7 +25,6 @@ namespace ProjetFinale.Views
         {
             InitializeComponent();
             this.DataContext = datacontext;
-            this.DataContext = vm;
         }
     }
 }
