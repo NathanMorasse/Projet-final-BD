@@ -35,6 +35,18 @@ namespace ProjetFinale.ViewModels
         #endregion
 
         #region Propriétés
+        public bool IsItemSelected
+        {
+            get 
+            {
+                if (ItemSelection == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
         public List<Item> Items
         {
             get
@@ -63,6 +75,7 @@ namespace ProjetFinale.ViewModels
             {
                 _itemSelection = value;
                 ChangeValue("ItemSelection");
+                ChangeValue("IsItemSelected");
             }
         }
 
@@ -197,7 +210,7 @@ namespace ProjetFinale.ViewModels
         private bool VerifCreateItem()
         {
             if(Name != null && Name !=  string.Empty && Description != null && Description != string.Empty && DiceToRoll != null 
-                && DiceToRoll != string.Empty && Weight >= 0)
+                && DiceToRoll != string.Empty && DiceToRoll.Length < 6 && Weight >= 0)
             {
                 return true;
             }

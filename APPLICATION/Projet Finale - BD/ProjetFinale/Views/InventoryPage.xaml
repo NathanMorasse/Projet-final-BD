@@ -92,6 +92,7 @@
                                 FontWeight="Bold"
                                 Foreground="White"
                                 Padding="5"
+                                IsEnabled="{Binding IsInventoryItemSelected}"
                                 Command="{Binding DeleteItemInventory,Mode=TwoWay}"/>
                         </Border>
                     </Border>

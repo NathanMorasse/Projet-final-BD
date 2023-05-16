@@ -10,13 +10,13 @@ namespace ProjetFinale.Models
     {
         #region Attributs
         private int _id;
-        private int _strength;
-        private int _dexterity;
-        private int _constitution;
-        private int _intelligence;
-        private int _wisdom;
-        private int _charisma;
-        private int _armor;
+        private int _strength = 1;
+        private int _dexterity = 1;
+        private int _constitution = 1;
+        private int _intelligence = 1;
+        private int _wisdom = 1;
+        private int _charisma = 1;
+        private int _armor = 1;
         #endregion
 
         #region Propriétés

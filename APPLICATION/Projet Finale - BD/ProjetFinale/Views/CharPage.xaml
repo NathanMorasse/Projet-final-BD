@@ -65,7 +65,10 @@
                             <TextBlock Grid.Column="1"
                                  Grid.Row="0"
                                  Margin="10"
-                                     Text="{Binding CharacterSelection.Characteristics.Race, Mode=TwoWay}">
+                                 FontSize="23"
+                                 FontFamily="Bahnschrift"
+                                 Foreground="White"   
+                                 Text="{Binding Race, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Classe :"
@@ -80,7 +83,10 @@
                             <TextBlock Grid.Column="1"
                                  Grid.Row="1"
                                  Margin="10"
-                                 Text="{Binding CharacterSelection.Characteristics.Classe, Mode=TwoWay}">
+                                 FontSize="23"
+                                 FontFamily="Bahnschrift"
+                                 Foreground="White"   
+                                 Text="{Binding Classe, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Alignement :"
@@ -94,8 +100,11 @@
 
                             <TextBlock Grid.Column="1"
                                  Grid.Row="2"
+                                 FontSize="23"
+                                 FontFamily="Bahnschrift"
+                                 Foreground="White"                                 
                                  Margin="10"
-                                 Text="{Binding CharacterSelection.Characteristics.Alignement, Mode=TwoWay}">
+                                 Text="{Binding Alignement, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Description :"
@@ -107,7 +116,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Text="{Binding CharacterSelection.Characteristics.Description,Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                            <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Histoire :"
                                FontSize="23"
@@ -118,7 +127,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Text="{Binding CharacterSelection.Characteristics.Background, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                            <TextBox Text="{Binding Background, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
                         </Grid>
                     </Border>
 
@@ -144,7 +153,7 @@
                                 FontSize="15"
                                 Foreground="White"
                                 Padding="5"
-                                FontWeight="Bold"
+                                Command="{Binding ModifCharacter}"
                                 Command="{Binding ModifCharacter,Mode=TwoWay}"/>
                             </Border>
                         </Grid>

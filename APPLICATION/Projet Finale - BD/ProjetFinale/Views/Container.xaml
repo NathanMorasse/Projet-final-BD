@@ -5,6 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjetFinale.Views"
         mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
         Title="Serge le gestionnaire" 
         Icon="/img/icon.ico"
         Height="450" 

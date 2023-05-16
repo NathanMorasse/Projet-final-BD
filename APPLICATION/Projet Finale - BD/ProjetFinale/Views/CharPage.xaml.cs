@@ -21,10 +21,10 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class CharPage : Page
     {
-        public CharPage(VMPersonnage dataContext)
+        public CharPage(VMPersonnage datacontext)
         {
             InitializeComponent();
-            VMPersonnage vm = dataContext;
+            this.DataContext = datacontext;
             this.DataContext = vm;
         }
     }
