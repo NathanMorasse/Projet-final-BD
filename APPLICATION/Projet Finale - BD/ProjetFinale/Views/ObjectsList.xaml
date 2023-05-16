@@ -150,6 +150,7 @@
                                 FontWeight="Bold"
                                 Foreground="White"
                                 Padding="5"
+                                IsEnabled="{Binding IsItemSelected}"
                                  Command="{Binding DeleteItem, Mode=TwoWay}"/>
                             </Border>
 

@@ -36,7 +36,7 @@ namespace ProjetFinale.Views
 
         private void Charateristic_Click(object sender, RoutedEventArgs e)
         {
-            sub_frame.Navigate(new CharPage());
+            sub_frame.Navigate(new CharPage((VMPersonnage)this.DataContext));
         }
 
         private void Inventory_Click(object sender, RoutedEventArgs e)

@@ -51,6 +51,7 @@
                                             <RowDefinition/>
                                             <RowDefinition/>
                                             <RowDefinition/>
+                                            <RowDefinition/>
                                         </Grid.RowDefinitions>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition/>
@@ -87,6 +88,7 @@
                             CornerRadius="10">
                             <Button Style="{DynamicResource ButtonStyleHover}" 
                                 x:Name="Delete"
+                                IsEnabled="{Binding IsCharacterAbilitySelected}"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 Content="- Supprimer des capacités"

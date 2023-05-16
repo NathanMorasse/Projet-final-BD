@@ -175,6 +175,7 @@
                             CornerRadius="10">
                                 <Button Style="{DynamicResource ButtonStyleHover}" 
                                 x:Name="Look"
+                                IsEnabled="{Binding IsCharacterSelected}"
                                 Click="Look_Click"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
@@ -194,6 +195,7 @@
                             CornerRadius="10">
                                 <Button Style="{DynamicResource ButtonStyleHover}" 
                                 x:Name="Delete"
+                                IsEnabled="{Binding IsCharacterSelected}"
                                 Click="Delete_Click"
                                 Background="Transparent"
                                 BorderBrush="Transparent"

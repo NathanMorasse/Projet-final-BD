@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,10 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class CharPage : Page
     {
-        public CharPage()
+        public CharPage(VMPersonnage datacontext)
         {
             InitializeComponent();
+            this.DataContext = datacontext;
         }
     }
 }

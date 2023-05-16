@@ -16,7 +16,7 @@ namespace ProjetFinale.Models
         #region Attributs
 
         private int _id;
-        private int _level;
+        private int _level = 1;
         private int _health;
         private string _name;
         private DateTime _dateModif;

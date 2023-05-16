@@ -50,6 +50,42 @@ namespace ProjetFinale.ViewModels
         #endregion
 
         #region Propriétés
+        public bool IsCharacterSelected
+        {
+            get 
+            {
+                if (CharacterSelection == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public bool IsInventoryItemSelected
+        {
+            get
+            {
+                if (InventorySelectedItem == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
+        public bool IsCharacterAbilitySelected
+        {
+            get
+            {
+                if (CharacterSelectedAbility == null)
+                {
+                    return false;
+                }
+                return true;
+            }
+        }
+
         public List<Character> Characters
         {
             get
@@ -145,6 +181,7 @@ namespace ProjetFinale.ViewModels
             {
                 _characterSelection = value;
                 ChangeValue("CharacterSelection");
+                ChangeValue("IsCharacterSelected");
             }
         }
 
@@ -171,6 +208,7 @@ namespace ProjetFinale.ViewModels
             {
                 _inventorySelectedItem = value;
                 ChangeValue("InventorySelectedItem");
+                ChangeValue("IsInventoryItemSelected");
             }
         }
 
@@ -197,12 +235,20 @@ namespace ProjetFinale.ViewModels
             {
                 _characterSelectedAbility = value;
                 ChangeValue("CharacterSelectedAbility");
+                ChangeValue("IsCharacterAbilitySelected");
             }
         }
 
         public string Name
         {
-            get { return _name; }
+            get
+            {
+                if (_name == null && CharacterSelection.Name != null)
+                {
+                    return CharacterSelection.Name;
+                }
+                return _name;
+            }
             set
             {
                 _name = value;
@@ -212,7 +258,14 @@ namespace ProjetFinale.ViewModels
 
         public string Race
         {
-            get { return _race; }
+            get 
+            {
+                if (_race == null && CharacterSelection.Characteristics.Race != null)
+                {
+                    return CharacterSelection.Characteristics.Race;
+                }
+                return _race; 
+            }
             set
             {
                 _race = value;
@@ -222,7 +275,14 @@ namespace ProjetFinale.ViewModels
 
         public string Classe
         {
-            get { return _classe; }
+            get 
+            {
+                if (_classe == null && CharacterSelection.Characteristics.Classe != null)
+                {
+                    return CharacterSelection.Characteristics.Classe;
+                }
+                return _classe; 
+            }
             set
             {
                 _classe = value;
@@ -232,7 +292,14 @@ namespace ProjetFinale.ViewModels
 
         public string Description
         {
-            get { return _description; }
+            get
+            {
+                if (_description == null && CharacterSelection.Characteristics.Race != null)
+                {
+                    return CharacterSelection.Characteristics.Description;
+                }
+                return _description;
+            }
             set
             {
                 _description = value;
@@ -242,7 +309,14 @@ namespace ProjetFinale.ViewModels
 
         public string Background
         {
-            get { return _background; }
+            get
+            {
+                if (_background == null && CharacterSelection.Characteristics.Background != null)
+                {
+                    return CharacterSelection.Characteristics.Background;
+                }
+                return _background;
+            }
             set
             {
                 _background = value;
@@ -252,7 +326,14 @@ namespace ProjetFinale.ViewModels
 
         public string Alignement
         {
-            get { return _alignement; }
+            get
+            {
+                if (_alignement == null && CharacterSelection.Characteristics.Alignement != null)
+                {
+                    return CharacterSelection.Characteristics.Alignement;
+                }
+                return _alignement;
+            }
             set
             {
                 _alignement = value;
@@ -384,6 +465,7 @@ namespace ProjetFinale.ViewModels
                 {
                     Character newCharacter = new Character(Name, Health);
                     newCharacter.Characteristics = new(Classe, Race, Description, Background, Alignement);
+                    newCharacter.Statistics = new Statistics();
                     CharacterList.AddCharacter(newCharacter);
                     Characters = CharacterList.Characters;
                     CharacterSelection = Characters[Characters.Count - 1];
@@ -417,6 +499,8 @@ namespace ProjetFinale.ViewModels
             {
                 try
                 {
+                    CharacterSelection.Characteristics.Description = Description;
+                    CharacterSelection.Characteristics.Background = Background;
                     CharacterList.UpdateCharacter(CharacterSelection);
                     Characters = CharacterList.Characters;
                 }
@@ -503,8 +587,8 @@ namespace ProjetFinale.ViewModels
         #region Fonctions
         private bool VerifCreateCharacter()
         {
-            if (Name != null && Name != string.Empty && Race != null && Race != string.Empty
-                && Classe != null && Classe != string.Empty && Alignement != null && Alignement != string.Empty
+            if (Name != null && Name != string.Empty && Name.Length <= 100 && Race != null && Race != string.Empty && Race.Length <= 40
+                && Classe != null && Classe != string.Empty && Classe.Length <= 40 && Alignement != null && Alignement != string.Empty && Alignement.Length <= 40
                 && Health >= 0)
             {
                 return true;
@@ -525,7 +609,7 @@ namespace ProjetFinale.ViewModels
         private bool VerifModifCharacter()
         {
             if(CharacterSelection.Name != null && CharacterSelection.Name !=  string.Empty
-                && CharacterSelection.Level >= 0 && CharacterSelection.Health >= 0 
+                && CharacterSelection.Level > 0 && CharacterSelection.Health >= 0 
                 && CharacterSelection.Characteristics.Classe != null && CharacterSelection.Characteristics.Classe != string.Empty
                 && CharacterSelection.Characteristics.Alignement != null && CharacterSelection.Characteristics.Alignement != string.Empty
                 && CharacterSelection.Characteristics.Race != null && CharacterSelection.Characteristics.Race != string.Empty
