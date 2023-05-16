@@ -91,7 +91,8 @@ namespace ProjetFinale.Models
             {
                 if (_abilities == null)
                 {
-                    return new List<Ability>();
+                    _abilities = new List<Ability>();
+                    return _abilities;
                 }
                 return _abilities;
             }
