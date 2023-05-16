@@ -77,7 +77,8 @@ namespace ProjetFinale.Models
             {
                 if( _inventory == null)
                 {
-                    return new List<Item>();
+                    _inventory = new List<Item>();
+                    return _inventory;
                 }
                 return _inventory;
             }
