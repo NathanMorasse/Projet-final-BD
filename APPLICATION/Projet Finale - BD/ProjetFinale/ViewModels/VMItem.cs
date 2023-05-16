@@ -113,7 +113,7 @@ namespace ProjetFinale.ViewModels
         }
         #endregion
 
-            #region Constructeur
+        #region Constructeur
         public VMItem()
         {
             this.Items = new List<Item>();

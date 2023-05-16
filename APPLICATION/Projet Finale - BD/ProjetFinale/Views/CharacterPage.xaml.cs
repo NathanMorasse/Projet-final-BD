@@ -46,7 +46,7 @@ namespace ProjetFinale.Views
 
         private void Abilities_Click(object sender, RoutedEventArgs e)
         {
-            sub_frame.Navigate(new AbilityPage());
+            sub_frame.Navigate(new AbilityPage((VMPersonnage)this.DataContext));
         }
 
         private void sub_frame_Navigated(object sender, NavigationEventArgs e)

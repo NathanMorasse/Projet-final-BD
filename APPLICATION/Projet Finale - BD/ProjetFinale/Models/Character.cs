@@ -143,6 +143,7 @@ namespace ProjetFinale.Models
                 }
             }
             Abilities.Add(Ajout);
+            new DAL().AbilityFact.AddAbilityToCharacter(this.Id, Ajout.Id);
         }
 
 
@@ -162,6 +163,7 @@ namespace ProjetFinale.Models
             if (exists)
             {
                 Abilities.Remove(Delete);
+                new DAL().AbilityFact.RemoveAbilityFromCharacter(this.Id, Delete.Id);
             }
             else
             {

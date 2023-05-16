@@ -209,6 +209,15 @@ namespace ProjetFinale.ViewModels
             return false;
         }
 
+        private bool VerifAddAbilityCharacter()
+        {
+            if (AbilitySelection != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private bool VerifCreateAbility()
         {
             if(Name != null && Name !=  string.Empty && PeriodeRechargement != null && PeriodeRechargement != string.Empty

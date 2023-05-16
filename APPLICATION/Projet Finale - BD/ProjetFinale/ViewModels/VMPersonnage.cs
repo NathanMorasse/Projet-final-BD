@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Security.RightsManagement;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -31,10 +32,14 @@ namespace ProjetFinale.ViewModels
         #region Attribut
         private List<Character> _characters;
         private List<Item> _items;
+        private List<Ability> _abilities;
         private List<Item> _characterInventory;
+        private List<Ability> _characterAbilities;
         private Character _characterSelection;
         private Item _itemSelection;
         private Item _inventorySelectedItem;
+        private Ability _abilitySelection;
+        private Ability _characterSelectedAbility;
         private string _name;
         private string _race;
         private string _classe;
@@ -79,6 +84,23 @@ namespace ProjetFinale.ViewModels
             }
         }
 
+        public List<Ability> Abilities
+        {
+            get
+            {
+                if(_abilities == null)
+                {
+                    return new List<Ability>();
+                }
+                return new List<Ability>(_abilities);
+            }
+            set
+            {
+                _abilities = value;
+                ChangeValue("Abilities");
+            }
+        }
+
         public List<Item> CharacterInventory
         {
             get
@@ -93,6 +115,23 @@ namespace ProjetFinale.ViewModels
             {
                 _characterInventory = CharacterSelection.Inventory;
                 ChangeValue("CharacterInventory");
+            }
+        }
+
+        public List<Ability> CharacterAbilities
+        {
+            get
+            {
+                if (CharacterSelection.Abilities == null)
+                {
+                    return new List<Ability>();
+                }
+                return new List<Ability>(CharacterSelection.Abilities);
+            }
+            set
+            {
+                _characterAbilities = CharacterSelection.Abilities;
+                ChangeValue("CharacterAbilities");
             }
         }
 
@@ -132,6 +171,32 @@ namespace ProjetFinale.ViewModels
             {
                 _inventorySelectedItem = value;
                 ChangeValue("InventorySelectedItem");
+            }
+        }
+
+        public Ability AbilitySelection
+        {
+            get
+            {
+                return _abilitySelection;
+            }
+            set
+            {
+                _abilitySelection = value;
+                ChangeValue("AbilitySelection");
+            }
+        }
+
+        public Ability CharacterSelectedAbility
+        {
+            get
+            {
+                return _characterSelectedAbility;
+            }
+            set
+            {
+                _characterSelectedAbility = value;
+                ChangeValue("CharacterSelectedAbility");
             }
         }
 
@@ -213,11 +278,15 @@ namespace ProjetFinale.ViewModels
             Characters = CharacterList.Characters;
             ItemList.LoadItems();
             Items = ItemList.Items;
+            AbilityList.LoadAbilities();
+            Abilities = AbilityList.Abilities;
             CreateCharacter = new CommandeRelais(CreateCharacter_Execute, CreateCharacter_CanExecute);
             DeleteCharacter = new CommandeRelais(DeleteCharacter_Execute, DeleteCharacter_CanExecute);
             ModifCharacter = new CommandeRelais(ModifCharacter_Execute, ModifCharacter_CanExecute);
             AjoutItemInventory = new CommandeRelais(AjoutItemInventory_Execute, AjoutItemInventory_CanExecute);
             DeleteItemInventory = new CommandeRelais(DeleteItemInventory_Execute, DeleteItemInventory_CanExecute);
+            AddAbilityCharacter = new CommandeRelais(AddAbilityCharacter_Execute, AddAbilityCharacter_CanExecute);
+            DeleteAbilityCharacter = new CommandeRelais(DeleteAbilityCharacter_Execute, DeleteAbilityCharacter_CanExecute);
         }
         #endregion
 
@@ -256,6 +325,57 @@ namespace ProjetFinale.ViewModels
             get { return _deleteItemInventory; }
             set { _deleteItemInventory = value; }
         }
+
+        private ICommand _addAbilityCharacter;
+        public ICommand AddAbilityCharacter
+        {
+            get { return _addAbilityCharacter; }
+            set { _addAbilityCharacter = value; }
+        }
+
+        private ICommand _deleteAbilityCharacter;
+        public ICommand DeleteAbilityCharacter
+        {
+            get { return _deleteAbilityCharacter; }
+            set { _deleteAbilityCharacter = value;
+            }
+        }
+        private void AddAbilityCharacter_Execute(object parameter)
+        {
+            if (VerifAddAbilityCharacter())
+            {
+                try
+                {
+                    CharacterSelection.AddAbility(AbilitySelection, CharacterSelection);
+                    CharacterAbilities = CharacterSelection.Abilities;
+                    ChangeValue("CharacterAbilities");
+                    ChangeValue("CharacterSelection");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
+        private void DeleteAbilityCharacter_Execute(object parameter)
+        {
+            if (VerifDeleteAbilityCharacter())
+            {
+                try
+                {
+                    CharacterSelection.DeleteAbility(CharacterSelectedAbility);
+                    CharacterAbilities = CharacterSelection.Abilities;
+                    ChangeValue("CharacterAbilities");
+                    ChangeValue("CharacterSelection");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+            }
+        }
+
         private void CreateCharacter_Execute(object Parameter)
         {
             if (VerifCreateCharacter())
@@ -345,11 +465,20 @@ namespace ProjetFinale.ViewModels
             }
         }
 
+        private bool DeleteAbilityCharacter_CanExecute(object paramter)
+        {
+            return true;
+        }
+
         private bool AjoutItemInventory_CanExecute(object parameter)
         {
             return true;
         }
 
+        private bool AddAbilityCharacter_CanExecute(object parameter)
+        {
+            return true;
+        }
 
         private bool CreateCharacter_CanExecute(object Parameter)
         {
@@ -424,6 +553,24 @@ namespace ProjetFinale.ViewModels
         private bool VerifDeleteItemFromInventory()
         {
             if(CharacterSelection != null && InventorySelectedItem != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool VerifAddAbilityCharacter()
+        {
+            if (AbilitySelection != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        private bool VerifDeleteAbilityCharacter()
+        {
+            if(CharacterSelectedAbility != null)
             {
                 return true;
             }
