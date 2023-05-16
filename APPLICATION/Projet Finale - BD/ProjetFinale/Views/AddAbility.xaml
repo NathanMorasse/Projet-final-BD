@@ -63,12 +63,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="0"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding Name,Mode=TwoWay}">
-                            </TextBox>
+                            <TextBox Text="{Binding Name, Mode=TwoWay}" Grid.Column="1" Grid.Row="0" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Période de rechargement :"
                                FontSize="23"
@@ -79,12 +74,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="1"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding PeriodeRechargement,Mode=TwoWay}">
-                            </TextBox>
+                            <TextBox Text="{Binding PeriodeRechargement, Mode=TwoWay}" Grid.Column="1" Grid.Row="1" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Distance :"
                                FontSize="23"
@@ -95,12 +85,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="2"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding Distance, Mode=TwoWay}">
-                            </TextBox>
+                            <TextBox Text="{Binding Distance, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Type d'habileté :"
                                FontSize="23"
@@ -111,12 +96,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="3"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding TypeHabilete, Mode=TwoWay}">
-                            </TextBox>
+                            <TextBox Text="{Binding TypeHabilete, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Dés à lancer :"
                                FontSize="23"
@@ -127,13 +107,8 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="4"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding DiceToRoll, Mode=TwoWay}">
-                            </TextBox>
-                            
+                            <TextBox Text="{Binding DiceToRoll, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+
                             <Label Content="Description :"
                                FontSize="23"
                                FontFamily="Bahnschrift"
@@ -143,12 +118,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Grid.Column="1"
-                                 Grid.Row="5"
-                                 Margin="10"
-                                 VerticalContentAlignment="Center"
-                                 Text="{Binding Description,Mode=TwoWay}">
-                            </TextBox>
+                            <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Column="1" Grid.Row="5" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
                         </Grid>
                     </Border>
 
