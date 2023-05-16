@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjetFinale.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,11 @@ namespace ProjetFinale.Views
     /// </summary>
     public partial class AbilityPage : Page
     {
-        public AbilityPage()
+        public AbilityPage(VMPersonnage dataContext)
         {
             InitializeComponent();
+            VMPersonnage vm = dataContext;
+            this.DataContext = vm;
         }
     }
 }
