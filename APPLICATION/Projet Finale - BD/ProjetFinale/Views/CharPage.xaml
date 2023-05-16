@@ -6,10 +6,149 @@
       xmlns:local="clr-namespace:ProjetFinale.Views"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="CharPage"
-      Background="LightPink">
+      Title="Charactéristiques">
 
-    <Grid>
-        
+    <Grid HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+        <Border CornerRadius="3" Background="#393646">
+            <Grid Margin="10">
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <Border Grid.Row="0"
+                            Background="#4F4557"
+                            CornerRadius="3 3 0 0">
+
+                        <Grid>
+                            <Label Grid.Column="0"
+                           Margin="3"
+                           FontSize="20" 
+                           FontWeight="DemiBold" 
+                           Foreground="White" 
+                           HorizontalAlignment="Center" 
+                           VerticalAlignment="Center"
+                           Content="Charactéristiques"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1" 
+                            Background="#6D5D6E" 
+                            BorderBrush="#4F4557"
+                            BorderThickness="2">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                                <RowDefinition/>
+                            </Grid.RowDefinitions>
+
+                            <Label Content="Race :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="0"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBlock Grid.Column="1"
+                                 Grid.Row="0"
+                                 Margin="10"
+                                     Text="{Binding Name, Mode=TwoWay}">
+                            </TextBlock>
+
+                            <Label Content="Classe :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="1"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                            <TextBlock Grid.Column="1"
+                                 Grid.Row="1"
+                                 Margin="10"
+                                 Text="{Binding Health, Mode=TwoWay}">
+                            </TextBlock>
+
+                            <Label Content="Alignement :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="2"
+                               VerticalAlignment="Center"
+                               Margin="10,0,0,0"/>
+
+                            <TextBlock Grid.Column="1"
+                                 Grid.Row="2"
+                                 Margin="10"
+                                 Text="{Binding Race, Mode=TwoWay}">
+                            </TextBlock>
+
+                            <Label Content="Description :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="3"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Text="{Binding Classe, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+
+                            <Label Content="Histoire :"
+                               FontSize="23"
+                               FontFamily="Bahnschrift"
+                               Foreground="White"
+                               Grid.Column="0"
+                               Grid.Row="4"
+                               Margin="10,0,0,0"
+                               VerticalAlignment="Center"/>
+
+                            <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="2"
+                            Background="#4F4557"
+                            CornerRadius="0 0 3 3"
+                            Height="50">
+                        <Grid>
+
+
+                            <Border Grid.Column="0"
+                            Grid.Row="1"
+                            Margin="5"
+                            Background="#609966"
+                            BorderBrush="#40513B"
+                            BorderThickness="2"
+                            CornerRadius="10">
+                                <Button Style="{DynamicResource ButtonStyleHover}" 
+                                x:Name="Save"
+                                Background="Transparent"
+                                BorderBrush="Transparent"
+                                Content="Enregistrer les modifications"
+                                FontSize="15"
+                                Foreground="White"
+                                Padding="5"
+                                FontWeight="Bold"/>
+                            </Border>
+                        </Grid>
+
+                    </Border>
+                </Grid>
+            </Grid>
+        </Border>
     </Grid>
 </Page>

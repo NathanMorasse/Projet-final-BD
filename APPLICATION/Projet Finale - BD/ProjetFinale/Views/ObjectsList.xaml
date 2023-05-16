@@ -145,7 +145,7 @@
                                 Click="Delete_Click"
                                 Background="Transparent"
                                 BorderBrush="Transparent"
-                                Content="- Supprimer"
+                                Content="⌫ Supprimer"
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"
