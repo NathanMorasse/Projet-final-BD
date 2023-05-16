@@ -66,5 +66,17 @@ namespace ProjetFinale.Views
         {
 
         }
+
+        private void EnableDisable(object sender, SelectionChangedEventArgs e)
+        {
+            if(Objects.SelectedItem != null)
+            {
+                Delete.IsEnabled = true;
+            }
+            else
+            {
+                Delete.IsEnabled = false;
+            }
+        }
     }
 }

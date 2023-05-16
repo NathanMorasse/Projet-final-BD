@@ -4,6 +4,8 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjetFinale.Views"
+      xmlns:vuemodele="clr-namespace:ProjetFinale.ViewModels"
+      d:DataContext="{d:DesignInstance Type=vuemodele:VMPersonnage}"
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Charactéristiques">
@@ -63,7 +65,7 @@
                             <TextBlock Grid.Column="1"
                                  Grid.Row="0"
                                  Margin="10"
-                                     Text="{Binding Name, Mode=TwoWay}">
+                                     Text="{Binding CharacterSelection.Characteristics.Race, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Classe :"
@@ -78,7 +80,7 @@
                             <TextBlock Grid.Column="1"
                                  Grid.Row="1"
                                  Margin="10"
-                                 Text="{Binding Health, Mode=TwoWay}">
+                                 Text="{Binding CharacterSelection.Characteristics.Classe, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Alignement :"
@@ -93,7 +95,7 @@
                             <TextBlock Grid.Column="1"
                                  Grid.Row="2"
                                  Margin="10"
-                                 Text="{Binding Race, Mode=TwoWay}">
+                                 Text="{Binding CharacterSelection.Characteristics.Alignement, Mode=TwoWay}">
                             </TextBlock>
 
                             <Label Content="Description :"
@@ -105,7 +107,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Text="{Binding Classe, Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                            <TextBox Text="{Binding CharacterSelection.Characteristics.Description,Mode=TwoWay}" Grid.Column="1" Grid.Row="3" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
 
                             <Label Content="Histoire :"
                                FontSize="23"
@@ -116,7 +118,7 @@
                                Margin="10,0,0,0"
                                VerticalAlignment="Center"/>
 
-                            <TextBox Text="{Binding Description, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
+                            <TextBox Text="{Binding CharacterSelection.Characteristics.Background, Mode=TwoWay}" Grid.Column="1" Grid.Row="4" Margin="10" Style="{StaticResource CustomTextBoxStyleNormal}" VerticalContentAlignment="Center" FontSize="23" FontFamily="Bahnschrift"/>
                         </Grid>
                     </Border>
 
@@ -142,7 +144,8 @@
                                 FontSize="15"
                                 Foreground="White"
                                 Padding="5"
-                                FontWeight="Bold"/>
+                                FontWeight="Bold"
+                                Command="{Binding ModifCharacter,Mode=TwoWay}"/>
                             </Border>
                         </Grid>
 

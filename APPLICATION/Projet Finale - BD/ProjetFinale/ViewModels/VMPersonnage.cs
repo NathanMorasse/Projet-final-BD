@@ -299,6 +299,7 @@ namespace ProjetFinale.ViewModels
                 {
                     CharacterList.UpdateCharacter(CharacterSelection);
                     Characters = CharacterList.Characters;
+                    MessageBox.Show("Le personnage a été modifié", "Modification Fait", MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 catch (Exception ex)
                 {

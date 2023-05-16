@@ -198,6 +198,7 @@
                                 Background="Transparent"
                                 BorderBrush="Transparent"
                                 Content="⌫ Supprimer"
+                                IsEnabled="False"
                                 FontSize="15"
                                 FontWeight="Bold"
                                 Foreground="White"
@@ -236,7 +237,7 @@
                         </Grid>
                     </Border>
 
-                    <ListBox Grid.Row="1" x:Name="Characters" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding Characters, Mode=TwoWay}" SelectedItem="{Binding CharacterSelection, Mode=TwoWay}">
+                    <ListBox Grid.Row="1" x:Name="Characters" HorizontalContentAlignment="Stretch" Background="#6D5D6E" BorderThickness="2" BorderBrush="#4F4557" ItemsSource="{Binding Characters, Mode=TwoWay}" SelectedItem="{Binding CharacterSelection, Mode=TwoWay}" SelectionChanged="EnableDisable">
                         <ListBox.ItemTemplate>
                             <DataTemplate>
                                 <Border BorderThickness="0,0,0,1" BorderBrush="#4F4557">

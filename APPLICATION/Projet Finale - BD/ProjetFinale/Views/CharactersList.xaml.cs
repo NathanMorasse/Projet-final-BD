@@ -72,5 +72,17 @@ namespace ProjetFinale.Views
         {
             NavigationService.Navigate(new CharacterPage((VMPersonnage)this.DataContext));
         }
+
+        private void EnableDisable(object sender, SelectionChangedEventArgs e)
+        {
+            if(Characters.SelectedItem != null)
+            {
+                Delete.IsEnabled = true;
+            }
+            else
+            {
+                Delete.IsEnabled = false;
+            }
+        }
     }
 }
